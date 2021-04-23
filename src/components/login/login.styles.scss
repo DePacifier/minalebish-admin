@@ -1,0 +1,82 @@
+$input-accent: #efeeee;
+$primary-color: #3db286;
+$primart-text-color: #fff5f5;
+$secondart-text-color: #938f8f;
+
+body {
+  box-sizing: border-box;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+  height: 100vh;
+  width: 100vw;
+
+  h1 {
+    color: $primart-text-color;
+    line-height: 1.5rem;
+    font-size: 6rem;
+  }
+
+  h2 {
+    font-weight: bolder;
+    font-size: 2rem;
+  }
+
+  label {
+    color: $secondart-text-color;
+  }
+
+  .sign-in {
+    .content {
+      width: 70%;
+    }
+  }
+
+  .side-info {
+    background-color: $primary-color;
+    .content {
+      margin-bottom: 4rem;
+    }
+  }
+
+  .item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .signin-title {
+      margin-bottom: 3rem;
+    }
+    .inputs {
+      height: 2rem;
+      width: 100%;
+      margin: 0.5rem 0 1rem 0;
+      border: $input-accent solid 1px;
+      border-radius: 5px;
+    }
+    label {
+      display: block;
+    }
+    input {
+      display: block;
+    }
+    .checkbox {
+      display: inline;
+    }
+
+    .signin-button {
+      color: $primart-text-color;
+      font-weight: bold;
+      font-size: 1rem;
+      height: 3rem;
+      width: 100%;
+      margin-top: 1rem;
+      border: $primary-color solid 1px;
+      border-radius: 200px;
+      background-color: $primary-color;
+    }
+  }
+}
