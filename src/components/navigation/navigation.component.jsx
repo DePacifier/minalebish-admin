@@ -2,34 +2,42 @@ import "./navigation.styles.scss";
 
 import React from "react";
 
-const Navigation = () => {
+const Navigation = ({ showLabels }) => {
   return (
-    <div className="flex-container">
+    <div className={`flex-container ${showLabels ? "" : "mini-version"}`}>
       <div>
         <ul className="nav-list">
           <li className="nav-item">
             <span className="material-icons-outlined md-36">dashboard</span>
-            <span className="label">Dashboard</span>
+            {showLabels ? <span className="label">Dashboard</span> : null}
           </li>
           <li className="nav-item">
             <span className="material-icons-outlined">sync_alt</span>
-            <span className="label">Transactions</span>
+            {showLabels ? <span className="label">Transactions</span> : null}
           </li>
           <li className="nav-item">
             <span className="material-icons-outlined">restaurant_menu</span>
-            <span className="label">Menu</span>
+            {showLabels ? <span className="label">Menu</span> : null}
           </li>
           <li className="nav-item">
             <span className="material-icons-outlined">groups</span>
-            <span className="label">Customers</span>
+            {showLabels ? <span className="label">Customers</span> : null}
           </li>
           <li className="nav-item">
             <span className="material-icons-outlined">person</span>
-            <span className="label">User</span>
+            {showLabels ? <span className="label">User</span> : null}
           </li>
           <li className="nav-item">
             <span className="material-icons-outlined">notifications</span>
-            <span className="label">Notification</span>
+            {showLabels ? <span className="label">Notification</span> : null}
+          </li>
+          <li className="nav-item">
+            <span className="material-icons-outlined">report</span>
+            {showLabels ? <span className="label">Report</span> : null}
+          </li>
+          <li className="nav-item">
+            <span className="material-icons-outlined">description</span>
+            {showLabels ? <span className="label">Log</span> : null}
           </li>
         </ul>
       </div>

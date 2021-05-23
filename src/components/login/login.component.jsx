@@ -1,11 +1,27 @@
 import "./login.styles.scss";
 
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 
-export default class Login extends Component {
+class Login extends Component {
   state = {
     email: "",
     password: "",
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("clicked!");
+    this.props.history.push("/123/Dashboard");
+  };
+
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  };
+
+  handleForgotPassword = () => {
+    this.props.history.push("/forgot-password");
   };
 
   render() {
@@ -14,14 +30,15 @@ export default class Login extends Component {
         <div className="login-grid-container">
           <div className="item sign-in">
             <div className="content">
-              <h2 className="signin-title">Sign In</h2>
-              <form method="" action="">
+              <h2 className="signin-title">Sign-In</h2>
+              <form onSubmit={this.handleSubmit}>
                 <label htmlFor="email">Email Address</label>
                 <input
                   className="inputs"
                   name="email"
                   type="email"
-                  placeholder=""
+                  value={this.state.email}
+                  onChange={this.handleChange}
                   required
                   autoFocus
                   autoComplete="true"
@@ -31,8 +48,10 @@ export default class Login extends Component {
                   className="inputs"
                   name="password"
                   type="password"
-                  placeholder=""
+                  value={this.state.password}
+                  onChange={this.handleChange}
                   required
+                  autoComplete="true"
                 />
                 <input
                   className="checkbox"
@@ -41,8 +60,11 @@ export default class Login extends Component {
                   value="remember me"
                 />
                 <label className="checkbox" htmlFor="remember">
-                  remember me
+                  Remember Me
                 </label>
+                <span className="forgot" onClick={this.handleForgotPassword}>
+                  Forgot Password ?
+                </span>
                 <input
                   className="signin-button"
                   type="submit"
@@ -53,8 +75,11 @@ export default class Login extends Component {
           </div>
           <div className="item side-info">
             <div className="content">
-              <h1>Welcome to</h1>
-              <h1>Minalebish Admin</h1>
+              <h1>
+                Welcome to
+                <br />
+                Minalesh Tera
+              </h1>
             </div>
           </div>
         </div>
@@ -62,3 +87,5 @@ export default class Login extends Component {
     );
   }
 }
+
+export default withRouter(Login);

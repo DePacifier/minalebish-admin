@@ -33,6 +33,17 @@ $secondart-text-color: #938f8f;
     font-size: 2rem;
   }
 
+  form {
+    position: relative;
+    .forgot {
+      font-size: 0.75rem;
+      color: #002bff;
+      position: absolute;
+      right: 0;
+      bottom: 3.5rem;
+    }
+  }
+
   label {
     color: $secondart-text-color;
   }
@@ -54,6 +65,16 @@ $secondart-text-color: #938f8f;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    .content {
+      h1 {
+        font-size: 2.875rem;
+        font-weight: 500;
+        font-family: Montserrat;
+        line-height: 2.875rem;
+        margin-right: 14rem;
+      }
+    }
 
     .signin-title {
       margin-bottom: 3rem;

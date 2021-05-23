@@ -1,0 +1,30 @@
+$label-text: #c8c7c7;
+$input-background: #c2f0e8;
+
+.main-flex-dash-container {
+  .user-profile-form {
+    label,
+    input {
+      display: block;
+    }
+
+    label {
+      color: $label-text;
+      font-size: 1.25rem;
+    }
+
+    input {
+      background-color: $input-background;
+      border: none;
+      width: 14.688rem;
+      height: 2.875rem;
+      font-size: 1.25rem;
+      color: black;
+      padding-left: 0.688rem;
+      margin-top: 0.25rem;
+      margin-bottom: 0.813rem;
+      letter-spacing: 0;
+      border-radius: 0.438rem;
+    }
+  }
+}

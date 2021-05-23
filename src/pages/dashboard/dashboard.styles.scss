@@ -49,31 +49,53 @@ $graph-columns-2: #cdd5e1;
   }
 
   .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 2;
     border-bottom: 2px solid $secondart-text-color;
 
+    .identity-container {
+      display: flex;
+      position: relative;
+      cursor: pointer;
+      margin-right: 1rem;
+
+      &:hover {
+        .options-list {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+    }
+
+    .material-icons-outlined.customBurg {
+      font-size: 3.75rem;
+      color: #16c3a5;
+    }
+
+    .change-view-button {
+      cursor: pointer;
+      margin-left: 1rem;
+    }
+
     .image {
-      height: 4rem;
-      width: 4rem;
+      height: 3.75rem;
+      width: 3.75rem;
       border-radius: 2rem;
       background-color: $primary-color;
-      line-height: 3.5rem;
+      line-height: 3.75rem;
       text-align: center;
-      display: block;
-      float: right;
-      margin: 1rem 0.5rem;
+      margin-right: 0.5rem;
       color: white;
       font-size: 2rem;
       font-weight: bold;
     }
     .details {
-      display: block;
-      width: max-content;
-      float: right;
-      margin: 0.7rem 3rem 0 0;
+      margin: 0 1rem 0 0;
     }
     h1,
     h2 {
@@ -86,6 +108,45 @@ $graph-columns-2: #cdd5e1;
     }
     h1 {
       font-weight: 400;
+    }
+    .dropdown-menu {
+      display: inline-block;
+
+      .dropdown-icon {
+        line-height: 3.75rem;
+      }
+
+      .option {
+        display: block;
+        padding: 0.438rem 0 0.438rem 0.438rem;
+        text-decoration: none;
+        color: #9f9e9e;
+        margin-top: 0.625rem;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .option.active {
+        color: #000;
+        background-color: #d3d3d3;
+        border-radius: 0.313rem;
+      }
+
+      .options-list {
+        background-color: #fff;
+        box-shadow: 0px 3px 6px #707070;
+        z-index: 1;
+        visibility: hidden;
+        position: absolute;
+        left: 0;
+        top: 4.5rem;
+        width: 20ch;
+        padding: 0 0.813rem 0.625rem 0.813rem;
+        font-size: 1.25rem;
+        opacity: 0;
+        transition: 0.3s;
+        border-radius: 0.563rem;
+      }
     }
   }
 
@@ -251,4 +312,8 @@ $graph-columns-2: #cdd5e1;
       }
     }
   }
+}
+
+.mini-grid-version {
+  grid-template-columns: 1fr 19fr;
 }

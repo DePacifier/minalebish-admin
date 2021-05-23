@@ -1,6 +1,6 @@
 import "./transaction.styles.scss";
 import React, { Component } from "react";
-import Navigation from "../components/navigation/navigation.component";
+import Navigation from "../../components/navigation/navigation.component";
 
 class Transaction extends Component {
   render() {

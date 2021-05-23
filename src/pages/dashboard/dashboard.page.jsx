@@ -1,13 +1,15 @@
 import "./dashboard.styles.scss";
 
 import React, { Component } from "react";
-import Navigation from "../components/navigation/navigation.component";
-import TotalDisplay from "../components/total-display/total-display.component";
-import TopDisplay from "../components/top-display/top-display.component";
-import GraphDisplay from "../components/graph-display/graph-display.component";
+import { Link } from "react-router-dom";
+
+import Navigation from "../../components/navigation/navigation.component";
+import TotalDisplay from "../../components/total-display/total-display.component";
+import TopDisplay from "../../components/top-display/top-display.component";
+import GraphDisplay from "../../components/graph-display/graph-display.component";
 
 export default class Dashboard extends Component {
-  state = {};
+  state = { miniVersion: false };
 
   graphData1 = [
     {
@@ -91,18 +93,55 @@ export default class Dashboard extends Component {
     },
   ];
 
+  handleChangeView = () => {
+    this.setState((prevState) => ({
+      miniVersion: !prevState.miniVersion,
+    }));
+  };
+
   render() {
     return (
-      <div className="grid-container">
+      <div
+        className={`grid-container ${
+          this.state.miniVersion ? "mini-grid-version" : ""
+        }`}
+      >
         <div className="grid-item nav">
-          <Navigation />
+          <Navigation showLabels={!this.state.miniVersion} />
         </div>
         <div className="grid-item header">
-          <div className="details">
-            <h1 className="title">Jon Dow</h1>
-            <h2 className="subtitle">Admin</h2>
+          <div className="change-view-button" onClick={this.handleChangeView}>
+            <span class="material-icons-outlined customBurg">menu</span>
           </div>
-          <div className="image">JD</div>
+          <div className="identity-container">
+            <div className="image">JD</div>
+            <div className="details">
+              <h1 className="title">Jon Dow</h1>
+              <h2 className="subtitle">Admin</h2>
+            </div>
+            <div className="dropdown-menu">
+              <div className="dropdown-icon">
+                <span class="material-icons-outlined">arrow_drop_down</span>
+              </div>
+              <div className="options-list">
+                <Link
+                  onClick={this.handleShowProfile}
+                  className={`option ${this.state.showProfile ? "active" : ""}`}
+                >
+                  Profile
+                </Link>
+                <Link
+                  onClick={this.handleShowChangePassword}
+                  className={`option ${this.state.showProfile ? "" : "active"}`}
+                >
+                  Change password
+                </Link>
+                <Link to="/" className="option">
+                  Logout
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="grid-item main">
           <h1 className="title">Dashboard</h1>
