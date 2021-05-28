@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import "./table-display.styles.scss";
 
 export default class TableDisplay extends Component {
+  state = { items: {}, viewSize: 5, pageLinks: [1] };
+
   render() {
     return (
       <div className="main-flex-container">
@@ -96,7 +98,7 @@ export default class TableDisplay extends Component {
             <span class="material-icons-outlined">last_page</span>
           </div>
           <div className="item per-page">
-            <span>View</span>
+            <span>View </span>
 
             <select name="item-view">
               <option value="1">1</option>
@@ -109,7 +111,7 @@ export default class TableDisplay extends Component {
               <option value="8">8</option>
             </select>
 
-            <span>items per page</span>
+            <span> items per page</span>
           </div>
           <div className="item desc">1 - 6 out of 45 items</div>
         </div>
