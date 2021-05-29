@@ -1,0 +1,111 @@
+.user-create-container {
+  position: relative;
+  margin-top: 2.563rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .absolute-page-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    .title {
+      margin-top: 0 !important;
+    }
+
+    .subtitle {
+    }
+  }
+
+  .create-user-form-group {
+    width: 54.313rem;
+    border-radius: 0.75rem;
+    border: 1px solid #16c3a5;
+    padding: 1.188rem;
+
+    &:not(:first-child) {
+      margin-top: 1.063rem;
+    }
+
+    h2 {
+      font-family: Montserrat;
+      font-size: 23px;
+      font-weight: 500;
+      color: #363131;
+      margin: 0 !important;
+    }
+    h3 {
+      font-family: Montserrat;
+      font-size: 18px;
+      font-weight: 400;
+      color: #716b6b;
+      margin: 0.438rem 0 1.875rem 0;
+    }
+
+    .horizontal-flex-container {
+      display: flex;
+      flex-wrap: wrap;
+      input {
+        width: 21.938rem;
+        height: 3.75rem;
+        border-radius: 0.5rem;
+        background-color: #fcfcfc;
+        border: 1px solid #dedede;
+        padding-left: 2.125rem;
+        font-family: Montserrat;
+        font-size: 18px;
+        font-weight: 400;
+        color: #9f9e9e;
+        display: block;
+
+        &:first-child {
+          margin-right: 5.813rem;
+          margin-bottom: 1.438rem;
+        }
+      }
+    }
+
+    .custom-select {
+      position: relative;
+      select {
+        width: 100%;
+        height: 3.75rem;
+        border-radius: 0.5rem;
+        border: 1px solid #dedede;
+        background-color: #fcfcfc;
+        font-family: Montserrat;
+        font-size: 18px;
+        font-weight: 400;
+        color: #9f9e9e;
+        padding-left: 2.125rem;
+        appearance: none;
+      }
+      .custom-arrow {
+        position: absolute;
+        right: 0;
+        top: 0;
+        pointer-events: none;
+        height: 100%;
+        color: #707070;
+        margin-right: 1.75rem;
+        font-size: 36px;
+        line-height: 3.75rem;
+      }
+    }
+  }
+
+  .submit-button {
+    width: 11.625rem;
+    height: 3.75rem;
+    margin-top: 2.25rem;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
+    background-color: #3db286;
+    border-radius: 0.563rem;
+    box-shadow: 0 3px 6px rgba($color: #000000, $alpha: 0.16);
+    float: right;
+  }
+}

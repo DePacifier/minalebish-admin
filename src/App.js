@@ -4,6 +4,7 @@ import Login from "./components/login/login.component";
 import ForgotPassword from "./pages/forgot-password/forgot-pasword.page";
 import PasswordReset from "./components/password-reset/password-reset.component";
 import LogPage from "./pages/log/log.page";
+import ReportPage from "./pages/report/report.page";
 import NotificationPage from "./pages/notification/notification.page";
 import UserPage from "./pages/user/user.page";
 import Profile from "./pages/profile/profile.page";
@@ -19,6 +20,7 @@ function App() {
         <Route exact path="/forgot-password" component={ForgotPassword} />
         <Route exact path="/reset-password" component={PasswordReset} />
         <Route exact path="/:userid/Logs" component={LogPage} />
+        <Route exact path="/:userid/Reports" component={ReportPage} />
         <Route
           exact
           path="/:userid/Notifications"

@@ -18,12 +18,12 @@ const Modal = (props) => {
         </div>
         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
           <div className="user-detail">
-            <span class="material-icons">person</span>
-            <p>User</p>
+            <span class="material-icons icon">person</span>
+            <h1>User</h1>
             <form>
               <div className="input-group">
-                <p>Info</p>
-                <p>Basic user information</p>
+                <h2>Info</h2>
+                <h3>Basic user information</h3>
                 <input type="text" name="firstName" placeholder="First Name" />
                 <input
                   type="text"
@@ -31,19 +31,24 @@ const Modal = (props) => {
                   placeholder="Middle Name"
                 />
                 <input type="text" name="lastName" placeholder="Last Name" />
-                <p>Contact Info</p>
-                <p>Contact user information</p>
+                <h2>Contact Info</h2>
+                <h3>Contact user information</h3>
                 <input type="email" name="email" placeholder="Email" />
                 <input type="tel" name="phone" placeholder="Phone Number" />
-                <p>Role</p>
-                <p>General menu information</p>
-                <select name="role">
-                  <option value="role1">role1</option>
-                  <option value="role2">role2</option>
-                </select>
+                <h2>Role</h2>
+                <h3>General menu information</h3>
+                <div className="custom-select">
+                  <select name="role">
+                    <option value="Role1">Role1</option>
+                    <option value="Role2">Role2</option>
+                  </select>
+                  <span class="material-icons custom-arrow">
+                    arrow_drop_down
+                  </span>
+                </div>
               </div>
 
-              <input type="submit" value="Submit" />
+              <input className="submit-button" type="submit" value="Submit" />
             </form>
           </div>
         </div>

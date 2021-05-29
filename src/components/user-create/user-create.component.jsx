@@ -70,12 +70,15 @@ export default class UserCreate extends Component {
           <div className="create-user-form-group">
             <h2>Role</h2>
             <h3>Control role of user</h3>
-            <select name="role">
-              <option value="role1">role1</option>
-              <option value="role2">role2</option>
-            </select>
+            <div className="custom-select">
+              <select name="role">
+                <option value="Role1">Role1</option>
+                <option value="Role2">Role2</option>
+              </select>
+              <span class="material-icons custom-arrow">arrow_drop_down</span>
+            </div>
           </div>
-          <input type="submit" value="Submit" />
+          <input className="submit-button" type="submit" value="Submit" />
         </form>
       </div>
     );

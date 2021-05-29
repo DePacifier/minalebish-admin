@@ -1,0 +1,138 @@
+.content-title {
+  margin: 2rem 3rem 0 3rem;
+}
+
+.content-detail-container {
+  margin: 0 3rem;
+  height: 43rem;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .export-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding-bottom: 1.375rem;
+    border-bottom: 1px solid rgba($color: #16c3a5, $alpha: 0.2);
+
+    .input-group {
+      display: flex;
+
+      .input-holder {
+        display: inline-block;
+        position: relative;
+        padding-top: 1.8rem;
+        .input-label {
+          position: absolute;
+          top: 0;
+          left: 0;
+          font-family: Montserrat;
+          font-size: 18px;
+          font-weight: 500;
+        }
+
+        .text-input {
+          width: 8.438rem;
+          height: 3.75rem;
+          background-color: #fcfcfc;
+          border: 1px solid #dedede;
+          border-radius: 0.5rem;
+          padding-left: 0.9rem;
+          font-family: Montserrat;
+          font-size: 18px;
+          font-weight: 400;
+          color: #9f9e9e;
+          margin-right: 2rem;
+        }
+      }
+
+      .toggle {
+        cursor: pointer;
+        .toggle-input {
+          display: none;
+        }
+
+        .toggle-input:checked + .toggle-bar {
+          background-color: #16c3a5;
+          .toggle-spin {
+            transform: translateX(4rem);
+          }
+        }
+
+        .toggle-bar {
+          width: 8rem;
+          height: 3.75rem;
+          background-color: #ff7878;
+          border-radius: 5rem;
+          padding: 5px;
+          transition: background-color 0.2s linear;
+          .toggle-spin {
+            width: 3rem;
+            height: 3rem;
+            background-color: white;
+            border-radius: 3rem;
+            transition: transform 0.2s linear;
+          }
+        }
+      }
+    }
+
+    .export-button {
+      position: relative;
+      cursor: pointer;
+      width: 12.063rem;
+      height: 3.813rem;
+      border-radius: 0.375rem;
+      border: 1px solid #16c3a5;
+      background-color: #fff;
+      padding: 1.118rem 0;
+      padding-left: 2rem;
+      font-family: Montserrat;
+      font-size: 16px;
+      font-weight: 500;
+      color: #16c3a5;
+
+      img {
+        position: absolute;
+        top: 0.7rem;
+        left: 1.118rem;
+      }
+    }
+  }
+
+  /********/
+  .table-control-container {
+    .input-holder {
+      display: inline-block;
+      position: relative;
+      padding-top: 1.8rem;
+      .input-label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-family: Montserrat;
+        font-size: 18px;
+        font-weight: 500;
+      }
+
+      .text-input {
+        width: 8.438rem;
+        height: 3.75rem;
+        background-color: #fcfcfc;
+        border: 1px solid #dedede;
+        border-radius: 0.5rem;
+        padding-left: 0.9rem;
+        font-family: Montserrat;
+        font-size: 18px;
+        font-weight: 400;
+        color: #9f9e9e;
+        margin-right: 2rem;
+      }
+    }
+  }
+}

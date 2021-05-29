@@ -4,7 +4,7 @@ $secondart-text-color: #cccccc;
 $title-text-color: #707070;
 $border-color: rgba(22, 195, 165, 0.2);
 
-.notification-grid-container {
+.report-grid-container {
   display: grid;
   grid-template-columns: 1fr 6fr;
   grid-template-rows: 1fr 9fr;
@@ -164,14 +164,13 @@ $border-color: rgba(22, 195, 165, 0.2);
       border-bottom: 1px solid $border-color;
       .links-list {
         margin-left: 1.3rem;
-        padding: 0;
+        padding: 0.7rem 0 0 0;
         margin-bottom: 0;
 
         .link-item {
           display: inline-block;
-          width: 6.5rem;
           text-align: center;
-          padding-bottom: 0.3rem;
+          padding: 0 0.1rem 0.3rem 0;
 
           &:not(:first-child) {
             margin-left: 6.375rem;

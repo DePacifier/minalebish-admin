@@ -2,6 +2,7 @@ $primary-color: #16c3a5;
 $secondart-text-color: #cccccc;
 
 $title-text-color: #707070;
+$border-color: rgba(22, 195, 165, 0.2);
 
 .user-grid-container {
   display: grid;
@@ -43,7 +44,7 @@ $title-text-color: #707070;
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 2;
-    border-bottom: 2px solid $secondart-text-color;
+    border-bottom: 1px solid $border-color;
 
     .identity-container {
       display: flex;
@@ -143,7 +144,6 @@ $title-text-color: #707070;
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3;
-    padding: 0 3rem;
 
     .title {
       margin-top: 0.5rem;
@@ -157,6 +157,43 @@ $title-text-color: #707070;
       margin-top: 0;
       font-size: 1rem;
       font-weight: 400;
+    }
+
+    .main-content-links {
+      padding: 0 3rem;
+      border-bottom: 1px solid $border-color;
+      .links-list {
+        margin-left: 1.3rem;
+        padding: 0;
+        margin-bottom: 0;
+
+        .link-item {
+          display: inline-block;
+          width: 6.5rem;
+          text-align: center;
+          padding-bottom: 0.3rem;
+
+          &:not(:first-child) {
+            margin-left: 6.375rem;
+          }
+
+          a {
+            font-family: Montserrat;
+            font-size: 20px;
+            font-weight: 500;
+            color: #3db286;
+            text-decoration: none;
+            cursor: pointer;
+          }
+        }
+        .link-item.active {
+          border-bottom: 0.4rem solid #16c3a5;
+        }
+      }
+    }
+
+    .content-container {
+      padding: 0 3rem;
     }
   }
 }
