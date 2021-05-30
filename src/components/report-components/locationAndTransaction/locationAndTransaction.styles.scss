@@ -50,36 +50,6 @@
           margin-right: 2rem;
         }
       }
-
-      .toggle {
-        cursor: pointer;
-        .toggle-input {
-          display: none;
-        }
-
-        .toggle-input:checked + .toggle-bar {
-          background-color: #16c3a5;
-          .toggle-spin {
-            transform: translateX(4rem);
-          }
-        }
-
-        .toggle-bar {
-          width: 8rem;
-          height: 3.75rem;
-          background-color: #ff7878;
-          border-radius: 5rem;
-          padding: 5px;
-          transition: background-color 0.2s linear;
-          .toggle-spin {
-            width: 3rem;
-            height: 3rem;
-            background-color: white;
-            border-radius: 3rem;
-            transition: transform 0.2s linear;
-          }
-        }
-      }
     }
 
     .export-button {
@@ -112,20 +82,6 @@
       position: relative;
       padding-top: 1.8rem;
 
-      .separator {
-        font-size: 18px;
-        font-weight: 600;
-      }
-
-      .input-label {
-        position: absolute;
-        top: 0;
-        left: 0;
-        font-family: Montserrat;
-        font-size: 18px;
-        font-weight: 500;
-      }
-
       .text-input {
         width: 8.438rem;
         height: 3.75rem;
@@ -138,44 +94,6 @@
         font-weight: 400;
         color: #9f9e9e;
         margin-right: 2rem;
-      }
-
-      .text-input.input-range {
-        &:first-of-type {
-          margin-right: 0.5rem;
-        }
-
-        &:last-of-type {
-          margin-left: 0.5rem;
-        }
-      }
-
-      .custom-select {
-        position: relative;
-        select {
-          width: 19.25rem;
-          height: 3.75rem;
-          border-radius: 0.5rem;
-          border: 1px solid #dedede;
-          background-color: #fcfcfc;
-          font-family: Montserrat;
-          font-size: 18px;
-          font-weight: 400;
-          color: #9f9e9e;
-          padding-left: 0.938rem;
-          appearance: none;
-        }
-        .custom-arrow {
-          position: absolute;
-          right: 0;
-          top: 0;
-          pointer-events: none;
-          height: 100%;
-          color: #707070;
-          margin-right: 0.4rem;
-          font-size: 36px;
-          line-height: 3.75rem;
-        }
       }
     }
   }

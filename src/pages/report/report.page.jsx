@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import Navigation from "../../components/navigation/navigation.component";
 import ClientAndTransaction from "../../components/report-components/clientAndTransaction/clientAndTransaction.component";
+import LocationAndTransaction from "../../components/report-components/locationAndTransaction/locationAndTransaction.component";
 
 import "./report.styles.scss";
 
@@ -136,8 +137,16 @@ export default class ReportPage extends Component {
           </div>
           {this.state.link1 ? <ClientAndTransaction transaction={false} /> : ""}
           {this.state.link2 ? <ClientAndTransaction transaction={true} /> : ""}
-          {this.state.link3 ? <ClientAndTransaction transaction={false} /> : ""}
-          {this.state.link4 ? <ClientAndTransaction transaction={false} /> : ""}
+          {this.state.link3 ? (
+            <LocationAndTransaction transaction={false} />
+          ) : (
+            ""
+          )}
+          {this.state.link4 ? (
+            <LocationAndTransaction transaction={true} />
+          ) : (
+            ""
+          )}
           {this.state.link5 ? <ClientAndTransaction transaction={false} /> : ""}
           {this.state.link6 ? <ClientAndTransaction transaction={false} /> : ""}
         </div>

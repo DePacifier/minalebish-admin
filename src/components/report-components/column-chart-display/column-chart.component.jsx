@@ -125,6 +125,7 @@ const basicData = [
 const ColumnChartDisplay = (props) => {
   const configGrouped = {
     data: groupdeData,
+    height: 362,
     isGroup: true,
     xField: "month",
     yField: "value",
@@ -150,6 +151,7 @@ const ColumnChartDisplay = (props) => {
 
   const configNormal = {
     data: basicData,
+    heigh: 362,
     xField: "type",
     yField: "sales",
     xAxis: {
@@ -170,10 +172,23 @@ const ColumnChartDisplay = (props) => {
     maxColumnWidth: 20,
   };
 
+  const normalGraph = (
+    <div className="chart-container">
+      <h1 className="graph-title">{props.titleNormal}</h1>
+      <ColumnChart {...configNormal} />
+    </div>
+  );
+
+  const groupedGraph = (
+    <div className="chart-container">
+      <h1 className="graph-title">{props.titleGrouped}</h1>
+      <ColumnChart {...configGrouped} />
+    </div>
+  );
+
   return (
     <div className="column-chart-container">
-      <ColumnChart {...configNormal} />
-      <ColumnChart {...configGrouped} />
+      {props.gender ? groupedGraph : normalGraph}
     </div>
   );
 };

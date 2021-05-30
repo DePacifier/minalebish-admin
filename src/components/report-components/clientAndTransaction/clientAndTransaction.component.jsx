@@ -33,8 +33,8 @@ export default class ClientAndTransaction extends Component {
     return (
       <>
         <div className="content-title">
-          <h1 className="title">Notification</h1>
-          <h2 className="subtitle">Create</h2>
+          <h1 className="title">Reports</h1>
+          <h2 className="subtitle">Client</h2>
         </div>
         <div className="content-detail-container">
           <div className="export-container">
@@ -86,8 +86,12 @@ export default class ClientAndTransaction extends Component {
               Export to CSV
             </button>
           </div>
-          <ColumnChartDisplay />
-          <PieChartDisplay />
+          <ColumnChartDisplay
+            titleNormal="Client to Age group"
+            titleGrouped="Transaction to Client"
+            gender={this.state.gender}
+          />
+          <PieChartDisplay gender={this.state.gender} />
           <div className="table-control-container">
             <div className="input-holder">
               <span className="input-label">Age</span>
@@ -115,7 +119,7 @@ export default class ClientAndTransaction extends Component {
             <div className="input-holder">
               <span className="input-label">Clients</span>
               <input
-                className="text-input"
+                className="text-input input-range"
                 type="text"
                 inputmode="numeric"
                 pattern="[0-9]*"
@@ -124,9 +128,9 @@ export default class ClientAndTransaction extends Component {
                 onChange={this.handleChange}
                 placeholder="200"
               />
-              <span>-</span>
+              <span className="separator">-</span>
               <input
-                className="text-input"
+                className="text-input input-range"
                 type="text"
                 inputmode="numeric"
                 pattern="[0-9]*"
