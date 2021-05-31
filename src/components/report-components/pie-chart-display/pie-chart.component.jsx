@@ -7,14 +7,14 @@ import "./pie-chart.styles.scss";
 const PieChartDisplay = (props) => {
   const config = {
     appendPadding: 10,
-    height: 400,
+    height: 412,
     data: [
-      { type: "a", value: 27 },
-      { type: "b", value: 25 },
-      { type: "c", value: 18 },
-      { type: "d", value: 15 },
-      { type: "e", value: 10 },
-      { type: "f", value: 5 },
+      { type: "Abebe", value: 27 },
+      { type: "Belete", value: 25 },
+      { type: "Chaltu", value: 18 },
+      { type: "Debebe", value: 15 },
+      { type: "Etete", value: 10 },
+      { type: "Feleke", value: 5 },
     ],
     angleField: "value",
     colorField: "type",

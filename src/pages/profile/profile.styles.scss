@@ -5,8 +5,8 @@ $title-text-color: #707070;
 
 .profile-grid-container {
   display: grid;
-  grid-template-columns: 1fr 6fr;
-  grid-template-rows: 1fr 9fr;
+  grid-template-columns: 16.125rem calc(100% - 16.125rem);
+  grid-template-rows: 5.75rem auto;
   height: 100vh;
 
   .nav {
@@ -15,6 +15,7 @@ $title-text-color: #707070;
     grid-row-start: 1;
     grid-row-end: 3;
     background-color: $primary-color;
+    width: 16.125rem;
   }
 
   .grid-item {
@@ -149,18 +150,23 @@ $title-text-color: #707070;
       margin-top: 0.5rem;
       color: $title-text-color;
       margin-bottom: 0;
-      font-size: 1.563rem;
+      font-family: Montserrat;
+      font-size: 25px;
       font-weight: 500;
     }
     .subtitle {
       color: $title-text-color;
       margin-top: 0;
-      font-size: 1rem;
+      font-family: Montserrat;
+      font-size: 16px;
       font-weight: 400;
     }
   }
 }
 
 .mini-grid-version {
-  grid-template-columns: 1fr 19fr;
+  grid-template-columns: 6rem auto !important;
+  .nav {
+    width: 6rem !important;
+  }
 }

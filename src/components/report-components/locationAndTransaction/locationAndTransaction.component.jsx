@@ -27,7 +27,7 @@ export default class LocationAndTransaction extends Component {
           <h1 className="title">Reports</h1>
           <h2 className="subtitle">Location</h2>
         </div>
-        <div className="content-detail-container">
+        <div className="lat-content-detail-container">
           <div className="export-container">
             <div className="input-group">
               <div className="input-holder">
@@ -62,23 +62,29 @@ export default class LocationAndTransaction extends Component {
               Export to CSV
             </button>
           </div>
-          <ColumnChartDisplay
-            titleNormal="Client to Age group"
-            titleGrouped="Transaction to Client"
-            gender={this.state.gender}
-          />
+          {this.state.transaction ? (
+            <ColumnChartDisplay
+              titleNormal="Location to Transaction"
+              titleGrouped="Location to Transaction"
+              gender={this.state.gender}
+            />
+          ) : (
+            <ColumnChartDisplay
+              titleNormal="Location to Client"
+              titleGrouped="Location to Client"
+              gender={this.state.gender}
+            />
+          )}
           <PieChartDisplay gender={this.state.gender} />
           <div className="table-control-container">
             <div className="input-holder">
               <input
                 className="text-input"
                 type="text"
-                inputmode="numeric"
-                pattern="[0-9][0-9]"
-                name="startAgeData"
-                value={this.state.startAgeData}
+                name="location"
+                value={this.state.locationData}
                 onChange={this.handleChange}
-                placeholder="Start Age"
+                placeholder="Search by location"
               />
             </div>
           </div>

@@ -30,13 +30,31 @@ export default class ClientAndTransaction extends Component {
   };
 
   render() {
+    const genderCustomSelect = (
+      <div className="input-holder">
+        <span className="input-label">Gender</span>
+        <div className="custom-select">
+          <select
+            name="genderData"
+            value={this.state.genderData}
+            onChange={this.handleChange}
+          >
+            <option value="">Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+          <span class="material-icons custom-arrow">arrow_drop_down</span>
+        </div>
+      </div>
+    );
+
     return (
       <>
         <div className="content-title">
           <h1 className="title">Reports</h1>
           <h2 className="subtitle">Client</h2>
         </div>
-        <div className="content-detail-container">
+        <div className="cat-content-detail-container">
           <div className="export-container">
             <div className="input-group">
               <div className="input-holder">
@@ -86,11 +104,12 @@ export default class ClientAndTransaction extends Component {
               Export to CSV
             </button>
           </div>
-          <ColumnChartDisplay
-            titleNormal="Client to Age group"
-            titleGrouped="Transaction to Client"
-            gender={this.state.gender}
-          />
+          {this.state.transaction ? (
+            <ColumnChartDisplay titleNormal="Transaction to Client" />
+          ) : (
+            <ColumnChartDisplay titleNormal="Client to Age group" />
+          )}
+
           <PieChartDisplay gender={this.state.gender} />
           <div className="table-control-container">
             <div className="input-holder">
@@ -140,21 +159,7 @@ export default class ClientAndTransaction extends Component {
                 placeholder="600"
               />
             </div>
-            <div className="input-holder">
-              <span className="input-label">Gender</span>
-              <div className="custom-select">
-                <select
-                  name="genderData"
-                  value={this.state.genderData}
-                  onChange={this.handleChange}
-                >
-                  <option value="">Gender</option>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                </select>
-                <span class="material-icons custom-arrow">arrow_drop_down</span>
-              </div>
-            </div>
+            {this.state.gender ? genderCustomSelect : ""}
           </div>
           <TableDisplay />
         </div>

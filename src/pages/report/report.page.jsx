@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Navigation from "../../components/navigation/navigation.component";
 import ClientAndTransaction from "../../components/report-components/clientAndTransaction/clientAndTransaction.component";
 import LocationAndTransaction from "../../components/report-components/locationAndTransaction/locationAndTransaction.component";
+import PurchasedAndTransaction from "../../components/report-components/purchasedAndTransaction/purchasedAndTransaction.component";
 
 import "./report.styles.scss";
 
@@ -13,6 +14,7 @@ const inactiveLinks = {
   link3: false,
   link4: false,
   link5: false,
+  link6: false,
 };
 
 export default class ReportPage extends Component {
@@ -22,6 +24,7 @@ export default class ReportPage extends Component {
     link3: false,
     link4: false,
     link5: false,
+    link6: false,
     miniVersion: false,
   };
 
@@ -51,7 +54,7 @@ export default class ReportPage extends Component {
           <div className="change-view-button" onClick={this.handleChangeView}>
             <span class="material-icons-outlined customBurg">menu</span>
           </div>
-          <div className="page-title">User</div>
+          <div className="page-title">Reports</div>
           <div className="identity-container">
             <div className="image">JD</div>
             <div className="details">
@@ -147,8 +150,16 @@ export default class ReportPage extends Component {
           ) : (
             ""
           )}
-          {this.state.link5 ? <ClientAndTransaction transaction={false} /> : ""}
-          {this.state.link6 ? <ClientAndTransaction transaction={false} /> : ""}
+          {this.state.link5 ? (
+            <PurchasedAndTransaction transaction={true} />
+          ) : (
+            ""
+          )}
+          {this.state.link6 ? (
+            <PurchasedAndTransaction transaction={false} />
+          ) : (
+            ""
+          )}
         </div>
       </div>
     );

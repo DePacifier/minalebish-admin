@@ -89,35 +89,51 @@ const groupdeData = [
 
 const basicData = [
   {
-    type: "家具家电",
+    type: "Jan",
     sales: 38,
   },
   {
-    type: "粮油副食",
+    type: "Feb",
     sales: 52,
   },
   {
-    type: "生鲜水果",
+    type: "Mar",
     sales: 61,
   },
   {
-    type: "美容洗护",
+    type: "Apr",
     sales: 145,
   },
   {
-    type: "母婴用品",
+    type: "May",
     sales: 48,
   },
   {
-    type: "进口食品",
+    type: "Jun",
     sales: 38,
   },
   {
-    type: "食品饮料",
+    type: "Jul",
     sales: 38,
   },
   {
-    type: "家庭清洁",
+    type: "Aug",
+    sales: 38,
+  },
+  {
+    type: "Sep",
+    sales: 48,
+  },
+  {
+    type: "Oct",
+    sales: 38,
+  },
+  {
+    type: "Nov",
+    sales: 38,
+  },
+  {
+    type: "Dec",
     sales: 38,
   },
 ];
@@ -125,7 +141,7 @@ const basicData = [
 const ColumnChartDisplay = (props) => {
   const configGrouped = {
     data: groupdeData,
-    height: 362,
+    height: 394,
     isGroup: true,
     xField: "month",
     yField: "value",
@@ -151,7 +167,7 @@ const ColumnChartDisplay = (props) => {
 
   const configNormal = {
     data: basicData,
-    heigh: 362,
+    heigh: 394,
     xField: "type",
     yField: "sales",
     xAxis: {
@@ -162,10 +178,10 @@ const ColumnChartDisplay = (props) => {
     },
     meta: {
       type: {
-        alias: "类别",
+        alias: "Info",
       },
       sales: {
-        alias: "销售额",
+        alias: "Amount",
       },
     },
     minColumnWidth: 20,
@@ -175,14 +191,18 @@ const ColumnChartDisplay = (props) => {
   const normalGraph = (
     <div className="chart-container">
       <h1 className="graph-title">{props.titleNormal}</h1>
-      <ColumnChart {...configNormal} />
+      <div className="graph-container">
+        <ColumnChart {...configNormal} />
+      </div>
     </div>
   );
 
   const groupedGraph = (
     <div className="chart-container">
       <h1 className="graph-title">{props.titleGrouped}</h1>
-      <ColumnChart {...configGrouped} />
+      <div className="graph-container">
+        <ColumnChart {...configGrouped} />
+      </div>
     </div>
   );
 

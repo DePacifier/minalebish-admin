@@ -7,11 +7,22 @@ import TableDisplay from "../../components/table-display/table-display.component
 import "./log.styles.scss";
 
 export default class LogPage extends Component {
-  state = { showProfile: this.props.showProfile, miniVersion: false };
+  state = {
+    showProfile: this.props.showProfile,
+    miniVersion: false,
+    showFilter: false,
+  };
 
   handleChangeView = () => {
     this.setState((prevState) => ({
       miniVersion: !prevState.miniVersion,
+    }));
+  };
+
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+    this.setState((prevState) => ({
+      showFilter: !prevState.showFilter,
     }));
   };
 
@@ -63,27 +74,39 @@ export default class LogPage extends Component {
         <div className="grid-item main">
           <h1 className="title">Log</h1>
           <h2 className="subtitle">List</h2>
-          <form className="form-class">
+          <form className="form-class" onSubmit={this.handleFormSubmit}>
             <div className="input-group">
               <input
                 className="field-input"
                 type="text"
                 placeholder="Search by fields"
               />
-              <label>Date</label>
-              <input
-                className="date-input"
-                type="date"
-                placeholder="3-27-2021"
-              />
-              <span class="divider"> - </span>
-              <input
-                className="date-input"
-                type="date"
-                placeholder="3-27-2021"
-              />
+              {this.state.showFilter ? (
+                <>
+                  <label>Date</label>
+                  <input
+                    className="date-input"
+                    type="date"
+                    placeholder="3-27-2021"
+                  />
+                  <span class="divider"> - </span>
+                  <input
+                    className="date-input"
+                    type="date"
+                    placeholder="3-27-2021"
+                  />
+                </>
+              ) : (
+                ""
+              )}
             </div>
-            <input className="filter-button" type="submit" value="Filter" />
+            <input
+              className={`filter-button ${
+                this.state.showFilter ? "clicked" : ""
+              }`}
+              type="submit"
+              value="Filter"
+            />
           </form>
           <TableDisplay />
         </div>
