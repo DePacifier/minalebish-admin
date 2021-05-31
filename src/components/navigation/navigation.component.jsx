@@ -10,68 +10,52 @@ const Navigation = ({ showLabels }) => {
       <div>
         <ul className="nav-list">
           <li className="nav-item">
-            <span className="material-icons-outlined md-36">dashboard</span>
-            {showLabels ? (
-              <span className="label">
-                <Link to="/123/Dashboard">Dashboard</Link>
-              </span>
-            ) : null}
+            <Link to="/123/Dashboard">
+              <span className="material-icons-outlined md-36">dashboard</span>
+              {showLabels ? <span className="label">Dashboard</span> : null}
+            </Link>
           </li>
           <li className="nav-item">
-            <span className="material-icons-outlined">sync_alt</span>
-            {showLabels ? (
-              <span className="label">
-                <Link to="/123/Transaction">Transactions</Link>
-              </span>
-            ) : null}
+            <Link to="/123/Transaction">
+              <span className="material-icons-outlined">sync_alt</span>
+              {showLabels ? <span className="label">Transactions</span> : null}
+            </Link>
           </li>
           <li className="nav-item">
-            <span className="material-icons-outlined">restaurant_menu</span>
-            {showLabels ? (
-              <span className="label">
-                <Link to="/123/Menu">Menu</Link>
-              </span>
-            ) : null}
+            <Link to="/123/Menu">
+              <span className="material-icons-outlined">restaurant_menu</span>
+              {showLabels ? <span className="label">Menu</span> : null}
+            </Link>
           </li>
           <li className="nav-item">
-            <span className="material-icons-outlined">groups</span>
-            {showLabels ? (
-              <span className="label">
-                <Link to="/123/Customers">Customers</Link>
-              </span>
-            ) : null}
+            <Link to="/123/Customers">
+              <span className="material-icons-outlined">groups</span>
+              {showLabels ? <span className="label">Customers</span> : null}
+            </Link>
           </li>
           <li className="nav-item">
-            <span className="material-icons-outlined">person</span>
-            {showLabels ? (
-              <span className="label">
-                <Link to="/123/User">User</Link>
-              </span>
-            ) : null}
+            <Link to="/123/User">
+              <span className="material-icons-outlined">person</span>
+              {showLabels ? <span className="label">User</span> : null}
+            </Link>
           </li>
           <li className="nav-item">
-            <span className="material-icons-outlined">notifications</span>
-            {showLabels ? (
-              <span className="label">
-                <Link to="/123/Notifications">Notification</Link>
-              </span>
-            ) : null}
+            <Link to="/123/Notifications">
+              <span className="material-icons-outlined">notifications</span>
+              {showLabels ? <span className="label">Notification</span> : null}
+            </Link>
           </li>
           <li className="nav-item">
-            <span className="material-icons-outlined">report</span>
-            {showLabels ? (
-              <span className="label">
-                <Link to="/123/Report">Report</Link>
-              </span>
-            ) : null}
+            <Link to="/123/Report">
+              <span className="material-icons-outlined">report</span>
+              {showLabels ? <span className="label">Report</span> : null}
+            </Link>
           </li>
           <li className="nav-item">
-            <span className="material-icons-outlined">description</span>
-            {showLabels ? (
-              <span className="label">
-                <Link to="/123/Logs">Log</Link>
-              </span>
-            ) : null}
+            <Link to="/123/Logs">
+              <span className="material-icons-outlined">description</span>
+              {showLabels ? <span className="label">Log</span> : null}
+            </Link>
           </li>
         </ul>
       </div>
