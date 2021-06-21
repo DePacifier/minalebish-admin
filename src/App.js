@@ -11,6 +11,7 @@ import Profile from "./pages/profile/profile.page";
 import Dashboard from "./pages/dashboard/dashboard.page";
 import Transaction from "./pages/transaction/transaction.page";
 import Menu from "./pages/menu/menu.page";
+import Customer from "./pages/customer/customer.page";
 
 function App() {
   return (
@@ -24,12 +25,21 @@ function App() {
         <Route
           exact
           path="/:userid/Notifications"
-          component={NotificationPage}
+          render={(props) => <NotificationPage {...props} showList={true} />}
         />
-        <Route exact path="/:userid/User" component={UserPage} />
+        <Route exact path="/:userid/Customers" component={Customer} />
+        <Route
+          exact
+          path="/:userid/User"
+          render={(props) => <UserPage {...props} showList={true} />}
+        />
         <Route exact path="/:userid/Profile" component={Profile} />
         <Route exact path="/:userid/Dashboard" component={Dashboard} />
-        <Route exact path="/:userid/Transaction" component={Transaction} />
+        <Route
+          exact
+          path="/:userid/Transaction"
+          render={(props) => <Transaction {...props} showList={true} />}
+        />
         <Route exact path="/:userid/Menu" component={Menu} />
         <Route path="*" render={() => <h1>Page Not Found !!!</h1>} />
       </Switch>

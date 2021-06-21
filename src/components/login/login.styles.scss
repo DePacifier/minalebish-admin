@@ -5,7 +5,7 @@ $secondart-text-color: #938f8f;
 
 .container {
   height: 100vh;
-  width: 100vw;
+  width: 98vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,10 +14,9 @@ $secondart-text-color: #938f8f;
 
 .login-grid-container {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: 1fr;
-  height: 70%;
-  width: 70%;
+  grid-auto-flow: row;
+  grid-template-columns: 27.313rem 36.875rem;
+  height: 36.938rem;
   border-radius: 1.5rem;
   background-color: #fff;
   overflow: hidden;
@@ -29,8 +28,9 @@ $secondart-text-color: #938f8f;
   }
 
   h2 {
-    font-weight: bolder;
-    font-size: 2rem;
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 2.375rem;
   }
 
   form {
@@ -45,7 +45,10 @@ $secondart-text-color: #938f8f;
   }
 
   label {
-    color: $secondart-text-color;
+    font-family: Roboto;
+    font-size: 1em;
+    font-weight: 400;
+    color: #716b6b;
   }
 
   .sign-in {
@@ -55,7 +58,10 @@ $secondart-text-color: #938f8f;
   }
 
   .side-info {
-    background-color: $primary-color;
+    background-image: url("../../images/login-image.png");
+    box-shadow: 0 3px 6px rgba(84, 84, 84, 0.16);
+    background-position: center center;
+    background-size: 607px 615px;
     .content {
       margin-bottom: 4rem;
     }
@@ -72,7 +78,7 @@ $secondart-text-color: #938f8f;
         font-weight: 500;
         font-family: Montserrat;
         line-height: 2.875rem;
-        margin-right: 14rem;
+        margin-right: 0.75rem;
       }
     }
 
@@ -80,11 +86,13 @@ $secondart-text-color: #938f8f;
       margin-bottom: 3rem;
     }
     .inputs {
-      height: 2rem;
+      height: 2.938rem;
       width: 100%;
       margin: 0.5rem 0 1rem 0;
-      border: $input-accent solid 1px;
-      border-radius: 5px;
+      border: 1px solid #dedede;
+      border-radius: 0.5rem;
+      padding-left: 0.938rem;
+      background-color: #fcfcfc;
     }
     label {
       display: block;

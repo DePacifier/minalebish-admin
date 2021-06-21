@@ -5,8 +5,10 @@ import "./notification-create.styles.scss";
 const NotificationCreate = (props) => {
   return (
     <>
-      <h1 className="title">Notification</h1>
-      <h2 className="subtitle">Create</h2>
+      <div className="notification-create-content-title">
+        <h1 className="title">Notification</h1>
+        <h2 className="subtitle">Create</h2>
+      </div>
       <div className="info-container">
         <form onSubmit={props.nextHandler}>
           <div className="input-group">

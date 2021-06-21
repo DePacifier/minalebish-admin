@@ -1,160 +1,111 @@
-import "./transaction.styles.scss";
 import React, { Component } from "react";
-import Navigation from "../../components/navigation/navigation.component";
+import { Link } from "react-router-dom";
 
-class Transaction extends Component {
+import Navigation from "../../components/navigation/navigation.component";
+import TransactionList from "../../components/transaction-components/transaction-list-component/transaction-list.component";
+import TransactionCreate from "../../components/transaction-components/transaction-create-component/transaction-create.component";
+
+import "./transaction.styles.scss";
+
+export default class UserPage extends Component {
+  state = { showList: this.props.showList, miniVersion: false };
+
+  handleChangeView = () => {
+    this.setState((prevState) => ({
+      miniVersion: !prevState.miniVersion,
+    }));
+  };
+
+  handleShowList = (event) => {
+    event.preventDefault();
+    this.setState({
+      showList: true,
+    });
+  };
+
+  handleShowCreate = (event) => {
+    event.preventDefault();
+    this.setState({
+      showList: false,
+    });
+  };
+
   render() {
     return (
-      <div className="transaction-grid-container">
+      <div
+        className={`transaction-grid-container ${
+          this.state.miniVersion ? "mini-grid-version" : ""
+        }`}
+      >
         <div className="grid-item nav">
-          <Navigation />
+          <Navigation
+            showLabels={!this.state.miniVersion}
+            activeTab="transaction"
+          />
         </div>
         <div className="grid-item header">
-          <div className="details">
-            <h1 className="title">Jon Dow</h1>
-            <h2 className="subtitle">Admin</h2>
+          <div className="change-view-button" onClick={this.handleChangeView}>
+            <span class="material-icons-outlined customBurg">menu</span>
           </div>
-          <div className="image">JD</div>
-          <div className="header-link-container">
+          <div className="page-title">Transaction</div>
+          <div className="identity-container">
+            <div className="image">JD</div>
+            <div className="details">
+              <h1 className="title">Jon Dow</h1>
+              <h2 className="subtitle">Admin</h2>
+            </div>
+            <div className="dropdown-menu">
+              <div className="dropdown-icon">
+                <span class="material-icons-outlined">arrow_drop_down</span>
+              </div>
+              <div className="options-list">
+                <Link
+                  className="option"
+                  to={{
+                    pathname: "profile",
+                    props: { showProfile: true },
+                  }}
+                >
+                  Profile
+                </Link>
+                <Link
+                  className="option"
+                  to={{
+                    pathname: "profile",
+                    props: { showProfile: false },
+                  }}
+                >
+                  Change password
+                </Link>
+                <Link to="/" className="option">
+                  Logout
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="grid-item main">
+          <div className="main-content-links">
             <ul className="links-list">
-              <li className="link-item">
-                <a className="active" href="">
-                  Menu
+              <li
+                className={`link-item ${this.state.showList ? "active" : ""}`}
+              >
+                <a href="" onClick={this.handleShowList}>
+                  List
                 </a>
               </li>
-              <li className="link-item">
-                <a href="">Category</a>
-              </li>
-              <li className="link-item">
-                <a href="">Unit</a>
+              <li
+                className={`link-item ${this.state.showList ? "" : "active"}`}
+              >
+                <a href="" onClick={this.handleShowCreate}>
+                  Create
+                </a>
               </li>
             </ul>
           </div>
-        </div>
-        <div className="main-content-links">
-          <ul className="links-list">
-            <li className="link-item active">
-              <a href="">List</a>
-            </li>
-            <li className="link-item">
-              <a href="">Create</a>
-            </li>
-          </ul>
-        </div>
-        <div className="grid-item main">
-          <div className="main-flex-container">
-            <table className="display-table">
-              <tr className="table-header">
-                <th>Date</th>
-                <th>Name</th>
-                <th>Category</th>
-                <th>Price</th>
-                <th>Price Old</th>
-                <th>Unit</th>
-                <th></th>
-              </tr>
-              <tr className="table-data">
-                <td>25 Dec 2021</td>
-                <td>Selit</td>
-                <td>Oil</td>
-                <td>$ 10</td>
-                <td>$ 9</td>
-                <td>Pound</td>
-                <td>
-                  <span class="material-icons-outlined">edit_note</span>
-                </td>
-              </tr>
-              <tr className="table-data">
-                <td>25 Dec 2021</td>
-                <td>Selit</td>
-                <td>Oil</td>
-                <td>$ 10</td>
-                <td>$ 9</td>
-                <td>Pound</td>
-                <td>
-                  <span class="material-icons-outlined">edit_note</span>
-                </td>
-              </tr>
-              <tr className="table-data">
-                <td>25 Dec 2021</td>
-                <td>Selit</td>
-                <td>Oil</td>
-                <td>$ 10</td>
-                <td>$ 9</td>
-                <td>Pound</td>
-                <td>
-                  <span class="material-icons-outlined">edit_note</span>
-                </td>
-              </tr>
-              <tr className="table-data">
-                <td>25 Dec 2021</td>
-                <td>Selit</td>
-                <td>Oil</td>
-                <td>$ 10</td>
-                <td>$ 9</td>
-                <td>Pound</td>
-                <td>
-                  <span class="material-icons-outlined">edit_note</span>
-                </td>
-              </tr>
-              <tr className="table-data">
-                <td>25 Dec 2021</td>
-                <td>Selit</td>
-                <td>Oil</td>
-                <td>$ 10</td>
-                <td>$ 9</td>
-                <td>Pound</td>
-                <td>
-                  <span class="material-icons-outlined">edit_note</span>
-                </td>
-              </tr>
-              <tr className="table-data">
-                <td>25 Dec 2021</td>
-                <td>Selit</td>
-                <td>Oil</td>
-                <td>$ 10</td>
-                <td>$ 9</td>
-                <td>Pound</td>
-                <td>
-                  <span class="material-icons-outlined">edit_note</span>
-                </td>
-              </tr>
-            </table>
-            <div className="table-navigation">
-              <div className="item page-nav">
-                <span class="material-icons-outlined">first_page</span>
-                <span className="material-icons-outlined">navigate_before</span>
-                <span className="links-holder">
-                  <a className="page active"> 1 </a>
-                  <a className="page active"> 2 </a>
-                  <a className="page active"> 3 </a>
-                </span>
-                <span className="material-icons-outlined">navigate_next</span>
-                <span class="material-icons-outlined">last_page</span>
-              </div>
-              <div className="item per-page">
-                <span>View</span>
-
-                <select name="cars">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                </select>
-
-                <span>items per page</span>
-              </div>
-              <div className="item desc">1 - 6 out of 45 items</div>
-            </div>
-          </div>
+          {this.state.showList ? <TransactionList /> : <TransactionCreate />}
         </div>
       </div>
     );
   }
 }
-
-export default Transaction;

@@ -1,7 +1,21 @@
+.notification-create-content-title {
+  margin: 1rem 0 0 3rem;
+  .subtitle {
+    margin-bottom: 1rem !important;
+  }
+}
+
 .info-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  height: calc(100% - 8rem);
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   form {
     .input-group {

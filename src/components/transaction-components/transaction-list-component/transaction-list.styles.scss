@@ -1,0 +1,103 @@
+.content-title {
+  margin: 2rem 3rem 0 3rem;
+}
+
+.transaction-list-container {
+  margin: 0 3rem 0 2rem;
+  height: calc(100% - 10rem);
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .inputs-container {
+    .horizontal-flex {
+      display: flex;
+      justify-content: space-between;
+      .input-field {
+        width: 18.125rem;
+        height: 3.438rem;
+        border-radius: 0.5rem;
+        border: 2px solid #16c3a5;
+        font-family: Montserrat;
+        font-size: 1.125em;
+        font-weight: 400;
+        color: #9f9e9e;
+        padding-left: 0.938rem;
+      }
+      .filter-button {
+        width: 7.625rem;
+        height: 3.438rem;
+        border-radius: 0.5rem;
+        border: 2px solid #16c3a5;
+        background-color: #16c3a5;
+        color: #fff;
+        font-family: Montserrat;
+        font-size: 18px;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      .clicked {
+        background-color: #fff;
+        color: #16c3a5;
+      }
+
+      .input-group {
+        .title {
+          display: block;
+          font-family: Montserrat;
+          font-size: 1.125em;
+          font-weight: 500;
+          color: #514d4d;
+        }
+        .text-field {
+          width: 8.438rem;
+          height: 3.75rem;
+          text-align: center;
+          background-color: #fcfcfc;
+          border-radius: 0.5rem;
+          border: 1px solid #dedede;
+          font-family: Montserrat;
+          font-size: 1.125em;
+          font-weight: 400;
+          color: #9f9e9e;
+        }
+        .custom-select {
+          position: relative;
+          margin-top: 1.875rem;
+          select {
+            width: 19.25rem;
+            height: 3.75rem;
+            border-radius: 0.5rem;
+            border: 1px solid #dedede;
+            background-color: #fcfcfc;
+            font-family: Montserrat;
+            font-size: 1.125em;
+            font-weight: 400;
+            color: #9f9e9e;
+            padding-left: 0.938rem;
+            appearance: none;
+          }
+          .custom-arrow {
+            position: absolute;
+            right: 0.5rem;
+            top: 0;
+            pointer-events: none;
+            height: 100%;
+            color: #707070;
+            font-size: 36px;
+            line-height: 3.75rem;
+          }
+        }
+      }
+    }
+
+    .margin-top {
+      margin-top: 1rem;
+    }
+  }
+}

@@ -26,6 +26,14 @@ export default class LogPage extends Component {
     }));
   };
 
+  handleTypeToDate = (event) => {
+    event.target.type = "date";
+  };
+
+  handleTypeToText = (event) => {
+    event.target.type = "text";
+  };
+
   render() {
     return (
       <div
@@ -34,7 +42,7 @@ export default class LogPage extends Component {
         }`}
       >
         <div className="grid-item nav">
-          <Navigation showLabels={!this.state.miniVersion} />
+          <Navigation showLabels={!this.state.miniVersion} activeTab="logs" />
         </div>
         <div className="grid-item header">
           <div className="change-view-button" onClick={this.handleChangeView}>
@@ -53,14 +61,20 @@ export default class LogPage extends Component {
               </div>
               <div className="options-list">
                 <Link
-                  onClick={this.handleShowProfile}
-                  className={`option ${this.state.showProfile ? "active" : ""}`}
+                  className="option"
+                  to={{
+                    pathname: "profile",
+                    props: { showProfile: true },
+                  }}
                 >
                   Profile
                 </Link>
                 <Link
-                  onClick={this.handleShowChangePassword}
-                  className={`option ${this.state.showProfile ? "" : "active"}`}
+                  className="option"
+                  to={{
+                    pathname: "profile",
+                    props: { showProfile: false },
+                  }}
                 >
                   Change password
                 </Link>
@@ -74,41 +88,124 @@ export default class LogPage extends Component {
         <div className="grid-item main">
           <h1 className="title">Log</h1>
           <h2 className="subtitle">List</h2>
-          <form className="form-class" onSubmit={this.handleFormSubmit}>
-            <div className="input-group">
+          <div className="scrollable">
+            <form className="form-class" onSubmit={this.handleFormSubmit}>
+              <div className="input-group">
+                <input
+                  className="field-input"
+                  type="text"
+                  placeholder="Search by fields"
+                />
+                {this.state.showFilter ? (
+                  <>
+                    <label>Date</label>
+                    <input
+                      className="date-input"
+                      type="text"
+                      onFocus={this.handleTypeToDate}
+                      onBlur={this.handleTypeToText}
+                      placeholder="2021-3-27"
+                    />
+                    <span class="divider"> - </span>
+                    <input
+                      className="date-input"
+                      type="text"
+                      onFocus={this.handleTypeToDate}
+                      onBlur={this.handleTypeToText}
+                      placeholder="2021-3-27"
+                    />
+                  </>
+                ) : (
+                  ""
+                )}
+              </div>
               <input
-                className="field-input"
-                type="text"
-                placeholder="Search by fields"
+                className={`filter-button ${
+                  this.state.showFilter ? "clicked" : ""
+                }`}
+                type="submit"
+                value="Filter"
               />
-              {this.state.showFilter ? (
-                <>
-                  <label>Date</label>
-                  <input
-                    className="date-input"
-                    type="date"
-                    placeholder="3-27-2021"
-                  />
-                  <span class="divider"> - </span>
-                  <input
-                    className="date-input"
-                    type="date"
-                    placeholder="3-27-2021"
-                  />
-                </>
-              ) : (
-                ""
-              )}
+            </form>
+            <div className="table-part">
+              <TableDisplay
+                tableData={[
+                  [
+                    "Login Time",
+                    "Log-out Time",
+                    "User Id",
+                    "Name",
+                    "Email",
+                    "Phone Number",
+                  ],
+                  [
+                    "29 ,Apr 2021 09:00 ",
+                    "29 ,Apr 2021 09:00 ",
+                    "2854",
+                    "Louisa Ramirez",
+                    "jeremy.lucas@mail.com",
+                    "(149)525-7243",
+                  ],
+                  [
+                    "29 ,Apr 2021 09:00 ",
+                    "29 ,Apr 2021 09:00 ",
+                    "2854",
+                    "Louisa Ramirez",
+                    "jeremy.lucas@mail.com",
+                    "(149)525-7243",
+                  ],
+                  [
+                    "29 ,Apr 2021 09:00 ",
+                    "29 ,Apr 2021 09:00 ",
+                    "2854",
+                    "Louisa Ramirez",
+                    "jeremy.lucas@mail.com",
+                    "(149)525-7243",
+                  ],
+                  [
+                    "29 ,Apr 2021 09:00 ",
+                    "29 ,Apr 2021 09:00 ",
+                    "2854",
+                    "Louisa Ramirez",
+                    "jeremy.lucas@mail.com",
+                    "(149)525-7243",
+                  ],
+                  [
+                    "29 ,Apr 2021 09:00 ",
+                    "29 ,Apr 2021 09:00 ",
+                    "2854",
+                    "Louisa Ramirez",
+                    "jeremy.lucas@mail.com",
+                    "(149)525-7243",
+                  ],
+                  [
+                    "29 ,Apr 2021 09:00 ",
+                    "29 ,Apr 2021 09:00 ",
+                    "2854",
+                    "Louisa Ramirez",
+                    "jeremy.lucas@mail.com",
+                    "(149)525-7243",
+                  ],
+                  [
+                    "29 ,Apr 2021 09:00 ",
+                    "29 ,Apr 2021 09:00 ",
+                    "2854",
+                    "Louisa Ramirez",
+                    "jeremy.lucas@mail.com",
+                    "(149)525-7243",
+                  ],
+                  [
+                    "29 ,Apr 2021 09:00 ",
+                    "29 ,Apr 2021 09:00 ",
+                    "2854",
+                    "Louisa Ramirez",
+                    "jeremy.lucas@mail.com",
+                    "(149)525-7243",
+                  ],
+                ]}
+              />
             </div>
-            <input
-              className={`filter-button ${
-                this.state.showFilter ? "clicked" : ""
-              }`}
-              type="submit"
-              value="Filter"
-            />
-          </form>
-          <TableDisplay />
+          </div>
         </div>
       </div>
     );

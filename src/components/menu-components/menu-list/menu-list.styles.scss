@@ -1,0 +1,56 @@
+.content-title {
+  margin: 2rem 3rem 0 3rem;
+}
+
+.menu-list-container {
+  padding: 0 3rem;
+  height: calc(100% - 11rem);
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .input-holder {
+    display: inline-block;
+    position: relative;
+    padding-top: 1.8rem;
+    .input-label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-family: Montserrat;
+      font-size: 18px;
+      font-weight: 500;
+    }
+    .custom-select {
+      position: relative;
+      select {
+        width: 19.25rem;
+        height: 3.75rem;
+        border-radius: 0.5rem;
+        border: 1px solid #dedede;
+        background-color: #fcfcfc;
+        font-family: Montserrat;
+        font-size: 18px;
+        font-weight: 400;
+        color: #9f9e9e;
+        padding-left: 0.938rem;
+        appearance: none;
+      }
+      .custom-arrow {
+        position: absolute;
+        top: 0;
+        right: 0;
+        pointer-events: none;
+        height: 100%;
+        color: #707070;
+        margin-right: 0.4rem;
+        font-size: 36px;
+        line-height: 3.75rem;
+      }
+    }
+  }
+}

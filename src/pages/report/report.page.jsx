@@ -5,6 +5,7 @@ import Navigation from "../../components/navigation/navigation.component";
 import ClientAndTransaction from "../../components/report-components/clientAndTransaction/clientAndTransaction.component";
 import LocationAndTransaction from "../../components/report-components/locationAndTransaction/locationAndTransaction.component";
 import PurchasedAndTransaction from "../../components/report-components/purchasedAndTransaction/purchasedAndTransaction.component";
+import UserTableToggle from "../../components/user-components/user-table-toggle/user-table-toggle.component";
 
 import "./report.styles.scss";
 
@@ -48,11 +49,11 @@ export default class ReportPage extends Component {
         }`}
       >
         <div className="grid-item nav">
-          <Navigation showLabels={!this.state.miniVersion} />
+          <Navigation showLabels={!this.state.miniVersion} activeTab="report" />
         </div>
         <div className="grid-item header">
           <div className="change-view-button" onClick={this.handleChangeView}>
-            <span class="material-icons-outlined customBurg">menu</span>
+            <span className="material-icons-outlined customBurg">menu</span>
           </div>
           <div className="page-title">Reports</div>
           <div className="identity-container">
@@ -63,18 +64,24 @@ export default class ReportPage extends Component {
             </div>
             <div className="dropdown-menu">
               <div className="dropdown-icon">
-                <span class="material-icons-outlined">arrow_drop_down</span>
+                <span className="material-icons-outlined">arrow_drop_down</span>
               </div>
               <div className="options-list">
                 <Link
-                  onClick={this.handleShowProfile}
-                  className={`option ${this.state.showProfile ? "active" : ""}`}
+                  className="option"
+                  to={{
+                    pathname: "profile",
+                    props: { showProfile: true },
+                  }}
                 >
                   Profile
                 </Link>
                 <Link
-                  onClick={this.handleShowChangePassword}
-                  className={`option ${this.state.showProfile ? "" : "active"}`}
+                  className="option"
+                  to={{
+                    pathname: "profile",
+                    props: { showProfile: false },
+                  }}
                 >
                   Change password
                 </Link>
@@ -138,6 +145,7 @@ export default class ReportPage extends Component {
               </li>
             </ul>
           </div>
+
           {this.state.link1 ? <ClientAndTransaction transaction={false} /> : ""}
           {this.state.link2 ? <ClientAndTransaction transaction={true} /> : ""}
           {this.state.link3 ? (

@@ -3,7 +3,7 @@ $secondart-text-color: #cccccc;
 $secondart-text-table-color: #bbbbbb;
 $table-row-color: #f6f6f9;
 
-.main-flex-container {
+.table-main-flex-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -43,6 +43,18 @@ $table-row-color: #f6f6f9;
     display: flex;
     justify-content: space-between;
     color: $secondart-text-table-color;
+
+    .material-icons-outlined {
+      cursor: pointer;
+    }
+
+    a {
+      cursor: pointer;
+    }
+
+    .page.active {
+      color: #16c3a5;
+    }
 
     .links-holder {
       font-size: 1rem;

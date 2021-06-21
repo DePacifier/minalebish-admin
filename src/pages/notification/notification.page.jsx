@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import Navigation from "../../components/navigation/navigation.component";
 import NotificationCreate from "../../components/notification-create/notification-create.component";
+import NotificationList from "../../components/notification-components/notification-list-component/notification-list.component";
 import TableDisplay from "../../components/table-display/table-display.component";
 
 import "./notification.styles.scss";
@@ -54,31 +55,29 @@ export default class NotificationPage extends Component {
       <div className="grid-item main">
         <div className="main-content-links">
           <ul className="links-list">
-            <li className="link-item active">
+            <li className={`link-item ${this.state.showList ? "active" : ""}`}>
               <a href="" onClick={this.handleShowList}>
                 List
               </a>
             </li>
-            <li className="link-item">
+            <li className={`link-item ${this.state.showList ? "" : "active"}`}>
               <a href="" onClick={this.handleShowCreate}>
                 Create
               </a>
             </li>
           </ul>
         </div>
-        <div className="content-container">
-          {this.state.showList ? (
-            "<NotificationList />"
-          ) : (
-            <NotificationCreate
-              titleData={this.state.title}
-              bodyData={this.state.body}
-              contactData={this.state.contact}
-              changeHandler={this.handleChange}
-              nextHandler={this.handleNext}
-            />
-          )}
-        </div>
+        {this.state.showList ? (
+          <NotificationList showList={true} />
+        ) : (
+          <NotificationCreate
+            titleData={this.state.title}
+            bodyData={this.state.body}
+            contactData={this.state.contact}
+            changeHandler={this.handleChange}
+            nextHandler={this.handleNext}
+          />
+        )}
       </div>
     );
 
@@ -240,7 +239,10 @@ export default class NotificationPage extends Component {
         }`}
       >
         <div className="grid-item nav">
-          <Navigation showLabels={!this.state.miniVersion} />
+          <Navigation
+            showLabels={!this.state.miniVersion}
+            activeTab="notifications"
+          />
         </div>
         <div className="grid-item header">
           <div className="change-view-button" onClick={this.handleChangeView}>

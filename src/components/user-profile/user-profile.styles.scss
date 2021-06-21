@@ -2,29 +2,37 @@ $label-text: #c8c7c7;
 $input-background: #c2f0e8;
 
 .main-flex-dash-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   .user-profile-form {
+    width: 30rem;
+    padding: 1rem;
     label,
     input {
       display: block;
+      width: 100% !important;
+      font-family: Montserrat;
     }
 
     label {
-      color: $label-text;
+      color: #3db286;
       font-size: 1.25rem;
+      font-weight: 500;
     }
 
     input {
-      background-color: $input-background;
-      border: none;
-      width: 14.688rem;
-      height: 2.875rem;
-      font-size: 1.25rem;
-      color: black;
-      padding-left: 0.688rem;
+      background-color: #fcfcfc;
+      border: 1px solid #dedede;
+      height: 3.75rem;
+      font-size: 1.125rem;
+      font-weight: 400;
+      color: #9f9e9e;
+      padding-left: 0.938rem;
       margin-top: 0.25rem;
       margin-bottom: 0.813rem;
-      letter-spacing: 0;
-      border-radius: 0.438rem;
+      border-radius: 0.5rem;
     }
   }
 }

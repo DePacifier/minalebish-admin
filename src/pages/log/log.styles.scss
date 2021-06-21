@@ -6,7 +6,7 @@ $title-text-color: #707070;
 .log-grid-container {
   display: grid;
   grid-template-columns: 16.125rem calc(100% - 16.125rem);
-  grid-template-rows: 5.75rem auto;
+  grid-template-rows: 5.75rem calc(100% - 5.75rem);
   height: 100vh;
 
   .nav {
@@ -19,6 +19,18 @@ $title-text-color: #707070;
   }
 
   .grid-item {
+    .scrollable {
+      height: calc(100% - 6rem);
+      padding: 1rem 2rem;
+      overflow-y: scroll;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
     h2 {
       line-height: 0.5;
       color: black;
@@ -44,7 +56,14 @@ $title-text-color: #707070;
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 2;
-    border-bottom: 2px solid $secondart-text-color;
+    border-bottom: 1px solid rgba($color: #16c3a5, $alpha: 0.2);
+
+    .page-title {
+      font-family: Montserrat;
+      font-size: 1.25em;
+      font-weight: 500;
+      color: #3db286;
+    }
 
     .identity-container {
       display: flex;
@@ -144,7 +163,7 @@ $title-text-color: #707070;
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3;
-    padding: 0 3rem;
+    padding: 0 1rem;
 
     .title {
       margin-top: 0.5rem;
@@ -163,13 +182,12 @@ $title-text-color: #707070;
     }
 
     .form-class {
-      margin-left: 2.3rem;
       display: flex;
       justify-content: space-between;
 
       .input-group {
         input {
-          padding-left: 0.7rem;
+          padding-left: 0.938rem;
           font-family: Montserrat;
           font-size: 18px;
           font-weight: 400;
@@ -205,6 +223,7 @@ $title-text-color: #707070;
           border-radius: 0.5rem;
           border: 1px solid #dedede;
           text-align: center;
+          padding: 0 !important;
         }
       }
 
@@ -227,6 +246,10 @@ $title-text-color: #707070;
       }
     }
 
+    .table-part {
+      // padding: 0 2rem;
+    }
+
     .main-flex-container {
       margin-left: 2.3rem;
     }
@@ -234,7 +257,7 @@ $title-text-color: #707070;
 }
 
 .mini-grid-version {
-  grid-template-columns: 6rem auto !important;
+  grid-template-columns: 6rem calc(100% - 6rem) !important;
   .nav {
     width: 6rem !important;
   }

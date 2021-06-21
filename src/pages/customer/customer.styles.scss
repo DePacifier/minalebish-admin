@@ -1,0 +1,235 @@
+$primary-color: #16c3a5;
+$secondart-text-color: #cccccc;
+$secondart-text-table-color: #bbbbbb;
+$table-row-color: #f6f6f9;
+$title-text-color: #707070;
+$border-color: rgba(22, 195, 165, 0.2);
+
+.customer-grid-container {
+  display: grid;
+  grid-template-columns: 16.125rem calc(100% - 16.125rem);
+  grid-template-rows: 5.75rem calc(100% - 5.75rem);
+  height: 100vh;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .active {
+    color: $primary-color;
+  }
+
+  .nav {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    background-color: $primary-color;
+    width: 16.125rem;
+  }
+
+  .grid-item {
+    h2 {
+      line-height: 0.5;
+      color: black;
+      padding-left: 0.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .details {
+      .subtitle {
+        line-height: 2rem;
+      }
+      h2 {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    border-bottom: 1px solid $border-color;
+
+    .identity-container {
+      display: flex;
+      position: relative;
+      cursor: pointer;
+      margin-right: 1rem;
+
+      &:hover {
+        .options-list {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+    }
+
+    .material-icons-outlined.customBurg {
+      font-size: 3.75rem;
+      color: #16c3a5;
+    }
+
+    .change-view-button {
+      cursor: pointer;
+      margin-left: 1rem;
+    }
+
+    .image {
+      height: 3.75rem;
+      width: 3.75rem;
+      border-radius: 2rem;
+      background-color: $primary-color;
+      line-height: 3.75rem;
+      text-align: center;
+      margin-right: 0.5rem;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .details {
+      margin: 0 1rem 0 0;
+    }
+    h1,
+    h2 {
+      height: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+    h2 {
+      color: $secondart-text-color;
+    }
+    h1 {
+      font-weight: 400;
+    }
+
+    .dropdown-menu {
+      display: inline-block;
+
+      .dropdown-icon {
+        line-height: 3.75rem;
+      }
+
+      .option {
+        display: block;
+        padding: 0.438rem 0 0.438rem 0.438rem;
+        text-decoration: none;
+        color: #9f9e9e;
+        margin-top: 0.625rem;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .option.active {
+        color: #000;
+        background-color: #d3d3d3;
+        border-radius: 0.313rem;
+      }
+
+      .options-list {
+        background-color: #fff;
+        box-shadow: 0px 3px 6px #707070;
+        z-index: 1;
+        visibility: hidden;
+        position: absolute;
+        left: 0;
+        top: 4.5rem;
+        width: 20ch;
+        padding: 0 0.813rem 0.625rem 0.813rem;
+        font-size: 1.25rem;
+        opacity: 0;
+        transition: 0.3s;
+        border-radius: 0.563rem;
+      }
+    }
+
+    .header-link-container {
+      float: right;
+      height: 6rem;
+      line-height: 4rem;
+      text-align: center;
+
+      .links-list {
+        list-style: none;
+        .link-item {
+          display: inline-block;
+          margin: 0 3rem;
+          a {
+            font-family: Montserrat;
+            font-size: 1.25em;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+
+  .main {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    position: relative;
+
+    .title {
+      margin-top: 0.5rem;
+      color: $title-text-color;
+      margin-bottom: 0;
+      font-family: Montserrat;
+      font-size: 25px;
+      font-weight: 500;
+    }
+    .subtitle {
+      color: $title-text-color;
+      margin-top: 0;
+      font-family: Montserrat;
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+
+  .main-content-links {
+    padding: 0 3rem;
+    border-bottom: 1px solid $border-color;
+    .links-list {
+      margin-left: 1.3rem;
+      padding: 0.7rem 0 0 0;
+      margin-bottom: 0;
+
+      .link-item {
+        display: inline-block;
+        text-align: center;
+        padding: 0 0.1rem 0.3rem 0;
+
+        &:not(:first-child) {
+          margin-left: 6.375rem;
+        }
+
+        a {
+          font-family: Montserrat;
+          font-size: 20px;
+          font-weight: 500;
+          color: #3db286;
+          text-decoration: none;
+          cursor: pointer;
+        }
+      }
+      .link-item.active {
+        border-bottom: 0.4rem solid #16c3a5;
+      }
+    }
+  }
+}
+
+.mini-grid-version {
+  grid-template-columns: 6rem calc(100% - 6rem) !important;
+  .nav {
+    width: 6rem !important;
+  }
+}

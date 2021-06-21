@@ -6,92 +6,18 @@ import { Link } from "react-router-dom";
 import Navigation from "../../components/navigation/navigation.component";
 import TotalDisplay from "../../components/total-display/total-display.component";
 import TopDisplay from "../../components/top-display/top-display.component";
-import GraphDisplay from "../../components/graph-display/graph-display.component";
+import TableDisplay from "../../components/table-display/table-display.component";
 
 export default class Dashboard extends Component {
-  state = { miniVersion: false };
-
-  graphData1 = [
-    {
-      type: "Jan",
-      sales: 35,
-    },
-    {
-      type: "Feb",
-      sales: 50,
-    },
-    {
-      type: "Mar",
-      sales: 73,
-    },
-    {
-      type: "Apr",
-      sales: 27,
-    },
-    {
-      type: "May",
-      sales: 50,
-    },
-    {
-      type: "Jun",
-      sales: 27,
-    },
-    {
-      type: "Jul",
-      sales: 60,
-    },
-    {
-      type: "Aug",
-      sales: 24,
-    },
-    {
-      type: "Sep",
-      sales: 30,
-    },
-    {
-      type: "Oct",
-      sales: 24,
-    },
-    {
-      type: "Nov",
-      sales: 60,
-    },
-    {
-      type: "Dec",
-      sales: 35,
-    },
-  ];
-
-  graphData2 = [
-    {
-      type: "Mon",
-      sales: 5,
-    },
-    {
-      type: "Tue",
-      sales: 10,
-    },
-    {
-      type: "Wed",
-      sales: 20,
-    },
-    {
-      type: "Thu",
-      sales: 7,
-    },
-    {
-      type: "Fri",
-      sales: 14,
-    },
-    {
-      type: "Sat",
-      sales: 6,
-    },
-    {
-      type: "Sun",
-      sales: 7,
-    },
-  ];
+  state = {
+    miniVersion: false,
+    tableItemsDataList: [
+      ["25 Dec 2021", "John Deivce", "Doro, Barley, Leaf Tea, Brookly ..."],
+      ["25 Dec 2021", "John Deivce", "Doro, Barley, Leaf Tea, Brookly ..."],
+      ["25 Dec 2021", "John Deivce", "Doro, Barley, Leaf Tea, Brookly ..."],
+      ["25 Dec 2021", "John Deivce", "Doro, Barley, Leaf Tea, Brookly ..."],
+    ],
+  };
 
   handleChangeView = () => {
     this.setState((prevState) => ({
@@ -107,7 +33,10 @@ export default class Dashboard extends Component {
         }`}
       >
         <div className="grid-item nav">
-          <Navigation showLabels={!this.state.miniVersion} />
+          <Navigation
+            showLabels={!this.state.miniVersion}
+            activeTab="dashboard"
+          />
         </div>
         <div className="grid-item header">
           <div className="change-view-button" onClick={this.handleChangeView}>
@@ -125,14 +54,20 @@ export default class Dashboard extends Component {
               </div>
               <div className="options-list">
                 <Link
-                  onClick={this.handleShowProfile}
-                  className={`option ${this.state.showProfile ? "active" : ""}`}
+                  className="option"
+                  to={{
+                    pathname: "profile",
+                    props: { showProfile: true },
+                  }}
                 >
                   Profile
                 </Link>
                 <Link
-                  onClick={this.handleShowChangePassword}
-                  className={`option ${this.state.showProfile ? "" : "active"}`}
+                  className="option"
+                  to={{
+                    pathname: "profile",
+                    props: { showProfile: false },
+                  }}
                 >
                   Change password
                 </Link>
@@ -144,74 +79,93 @@ export default class Dashboard extends Component {
           </div>
         </div>
         <div className="grid-item main">
-          <h1 className="title">Dashboard</h1>
-          <h2 className="subtitle">Home</h2>
-          <div className="main-flex-dash-container">
-            <div className="total-display-container">
-              <TotalDisplay
-                title="Total Sells"
-                value="$ 60,000"
-                timeFrame="2010-2021"
-              />
-              <TotalDisplay
-                title="Total Sells"
-                value="$ 60,000"
-                timeFrame="2010-2021"
-              />
-              <TotalDisplay
-                title="Total Sells"
-                value="$ 60,000"
-                timeFrame="2010-2021"
-              />
-              <TotalDisplay
-                title="Total Sells"
-                value="$ 60,000"
-                timeFrame="Today"
-              />
-              <TotalDisplay
-                title="Total Sells"
-                value="$ 60,000"
-                timeFrame="Today"
-              />
-              <TotalDisplay
-                title="Total Sells"
-                value="$ 60,000"
-                timeFrame="Today"
-              />
-            </div>
-
-            <TopDisplay
-              title="Top Products"
-              subtitle="Jan, 2021"
-              data={[
-                { num: 1, name: "Selit", amount: "650", price: "$ 6,540" },
-                { num: 2, name: "Selit", amount: "650", price: "$ 6,540" },
-                { num: 3, name: "Selit", amount: "650", price: "$ 6,540" },
-              ]}
-            />
+          <div className="content-title">
+            <h1 className="title">Dashboard</h1>
+            <h2 className="subtitle">Home</h2>
           </div>
-          <div className="main-flex-dash-container last">
-            <div className="graph-display-container">
-              <div className="box graph1">
-                <h1>Transaction to Time</h1>
-                <GraphDisplay config={this.graphData1} />
+          <div className="scrollable big">
+            <div className="main-flex-dash-container">
+              <div className="total-display-container">
+                <TotalDisplay
+                  title="Today's Sales"
+                  value="$ 60,000"
+                  timeFrame="Yeseterday"
+                  image="sales"
+                />
+                <TotalDisplay
+                  title="Total Product Sold"
+                  value="450"
+                  timeFrame="Yeseterday"
+                  image="products"
+                />
+                <TotalDisplay
+                  title="Total Customers"
+                  value="200"
+                  timeFrame="Yeseterday"
+                  image="customers"
+                />
+                <TotalDisplay
+                  title="Today's Sells"
+                  value="$ 60,000"
+                  timeFrame="Today"
+                  image="sales"
+                />
+                <TotalDisplay
+                  title="Total Product Sold"
+                  value="450"
+                  timeFrame="Today"
+                  image="products"
+                />
+                <TotalDisplay
+                  title="Total Customers"
+                  value="200"
+                  timeFrame="Today"
+                  image="customers"
+                />
               </div>
-              <div className="box graph2">
-                <h1>Customer per time</h1>
-                <h2>Daily Average</h2>
-                <GraphDisplay config={this.graphData2} />
-              </div>
-            </div>
 
-            <TopDisplay
-              title="Top Products"
-              subtitle="this week"
-              data={[
-                { num: 1, name: "Selit", amount: "650", price: "$ 6,540" },
-                { num: 2, name: "Selit", amount: "650", price: "$ 6,540" },
-                { num: 3, name: "Selit", amount: "650", price: "$ 6,540" },
-              ]}
-            />
+              <TopDisplay
+                title="Top Products"
+                subtitle="Jan, 2021"
+                data={[
+                  { num: 1, name: "Selit", amount: "650", price: "$ 6,540" },
+                  { num: 2, name: "Selit", amount: "650", price: "$ 6,540" },
+                  { num: 3, name: "Selit", amount: "650", price: "$ 6,540" },
+                ]}
+              />
+            </div>
+            <div className="main-flex-dash-container last">
+              <div className="table-container">
+                <span className="table-title">Void Transactions</span>
+                <table className="fixed-header">
+                  <thead>
+                    <tr className="table-header">
+                      <th className="first">Date</th>
+                      <th>Customer Name</th>
+                      <th>Item Names</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {this.state.tableItemsDataList.map((item, index) => (
+                      <tr key={index}>
+                        <td className="first">{item[0]}</td>
+                        <td>{item[1]}</td>
+                        <td>{item[2]}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <TopDisplay
+                title="Top Products"
+                subtitle="this week"
+                data={[
+                  { num: 1, name: "Selit", amount: "650", price: "$ 6,540" },
+                  { num: 2, name: "Selit", amount: "650", price: "$ 6,540" },
+                  { num: 3, name: "Selit", amount: "650", price: "$ 6,540" },
+                ]}
+              />
+            </div>
           </div>
         </div>
       </div>

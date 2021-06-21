@@ -1,0 +1,15 @@
+.content-title {
+  margin: 2rem 3rem 0 3rem;
+}
+
+.category-list-container {
+  padding: 0 3rem;
+  height: calc(100% - 11rem);
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

@@ -1,0 +1,44 @@
+.user-list-tableToggle {
+  display: flex;
+  justify-content: space-around;
+  .material-icons {
+    font-size: 1.875em;
+    color: #3db286;
+  }
+  .material-icons.activated {
+    color: #16c3a5;
+  }
+  .material-icons.deactivated {
+    color: #f21717;
+  }
+
+  .toggle {
+    cursor: pointer;
+    .toggle-input {
+      display: none;
+    }
+
+    .toggle-input:checked + .toggle-bar {
+      .toggle-spin {
+        transform: translateX(1.2rem);
+      }
+    }
+
+    .toggle-bar {
+      width: 3.2rem;
+      height: 1.875rem;
+      background-color: #fff;
+      border-radius: 1.7rem;
+      border: 2px solid #564646;
+      padding: 1px 2.2px;
+      transition: background-color 0.2s linear;
+      .toggle-spin {
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: #3db286;
+        border-radius: 1.5rem;
+        transition: transform 0.2s linear;
+      }
+    }
+  }
+}

@@ -38,7 +38,7 @@ export default class UserPage extends Component {
         }`}
       >
         <div className="grid-item nav">
-          <Navigation showLabels={!this.state.miniVersion} />
+          <Navigation showLabels={!this.state.miniVersion} activeTab="user" />
         </div>
         <div className="grid-item header">
           <div className="change-view-button" onClick={this.handleChangeView}>
@@ -57,14 +57,20 @@ export default class UserPage extends Component {
               </div>
               <div className="options-list">
                 <Link
-                  onClick={this.handleShowProfile}
-                  className={`option ${this.state.showProfile ? "active" : ""}`}
+                  className="option"
+                  to={{
+                    pathname: "profile",
+                    props: { showProfile: true },
+                  }}
                 >
                   Profile
                 </Link>
                 <Link
-                  onClick={this.handleShowChangePassword}
-                  className={`option ${this.state.showProfile ? "" : "active"}`}
+                  className="option"
+                  to={{
+                    pathname: "profile",
+                    props: { showProfile: false },
+                  }}
                 >
                   Change password
                 </Link>
@@ -78,21 +84,23 @@ export default class UserPage extends Component {
         <div className="grid-item main">
           <div className="main-content-links">
             <ul className="links-list">
-              <li className="link-item active">
+              <li
+                className={`link-item ${this.state.showList ? "active" : ""}`}
+              >
                 <a href="" onClick={this.handleShowList}>
                   List
                 </a>
               </li>
-              <li className="link-item">
+              <li
+                className={`link-item ${this.state.showList ? "" : "active"}`}
+              >
                 <a href="" onClick={this.handleShowCreate}>
                   Create
                 </a>
               </li>
             </ul>
           </div>
-          <div className="content-container">
-            {this.state.showList ? <UserList /> : <UserCreate />}
-          </div>
+          {this.state.showList ? <UserList /> : <UserCreate />}
         </div>
       </div>
     );

@@ -29,15 +29,5 @@
 
   .data-container {
     display: flex;
-    align-items: center;
-    margin-right: 1rem;
-
-    .details {
-      margin-right: 1rem;
-    }
-  }
-
-  .data-container:last-of-type {
-    margin-bottom: 1rem;
   }
 }
