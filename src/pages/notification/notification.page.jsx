@@ -261,14 +261,20 @@ export default class NotificationPage extends Component {
               </div>
               <div className="options-list">
                 <Link
-                  onClick={this.handleShowProfile}
-                  className={`option ${this.state.showProfile ? "active" : ""}`}
+                  className="option"
+                  to={{
+                    pathname: "profile",
+                    props: { showProfile: true },
+                  }}
                 >
                   Profile
                 </Link>
                 <Link
-                  onClick={this.handleShowChangePassword}
-                  className={`option ${this.state.showProfile ? "" : "active"}`}
+                  className="option"
+                  to={{
+                    pathname: "profile",
+                    props: { showProfile: false },
+                  }}
                 >
                   Change password
                 </Link>

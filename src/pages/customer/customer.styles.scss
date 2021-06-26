@@ -182,14 +182,14 @@ $border-color: rgba(22, 195, 165, 0.2);
       color: $title-text-color;
       margin-bottom: 0;
       font-family: Montserrat;
-      font-size: 25px;
+      font-size: 1.563rem;
       font-weight: 500;
     }
     .subtitle {
       color: $title-text-color;
       margin-top: 0;
       font-family: Montserrat;
-      font-size: 16px;
+      font-size: 1rem;
       font-weight: 400;
     }
   }
@@ -213,7 +213,7 @@ $border-color: rgba(22, 195, 165, 0.2);
 
         a {
           font-family: Montserrat;
-          font-size: 20px;
+          font-size: 1.25rem;
           font-weight: 500;
           color: #3db286;
           text-decoration: none;

@@ -35,7 +35,12 @@ $title-text-color: #707070;
       line-height: 0.5;
       color: black;
       padding-left: 0.1rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    h1,
+    h2 {
+      margin-left: 3rem;
     }
 
     .details {
@@ -60,7 +65,7 @@ $title-text-color: #707070;
 
     .page-title {
       font-family: Montserrat;
-      font-size: 1.25em;
+      font-size: 1.25rem;
       font-weight: 500;
       color: #3db286;
     }
@@ -170,14 +175,15 @@ $title-text-color: #707070;
       color: $title-text-color;
       margin-bottom: 0;
       font-family: Montserrat;
-      font-size: 25px;
+      font-size: 1.563rem;
       font-weight: 500;
+      margin-top: 1rem !important;
     }
     .subtitle {
       color: $title-text-color;
       margin-top: 0;
       font-family: Montserrat;
-      font-size: 16px;
+      font-size: 1rem;
       font-weight: 400;
     }
 
@@ -189,12 +195,12 @@ $title-text-color: #707070;
         input {
           padding-left: 0.938rem;
           font-family: Montserrat;
-          font-size: 18px;
+          font-size: 1.125rem;
           font-weight: 400;
         }
 
         .divider {
-          font-size: 20px;
+          font-size: 1.25rem;
           font-weight: bolder;
         }
 
@@ -211,7 +217,7 @@ $title-text-color: #707070;
           margin-bottom: 0.4rem;
           display: block;
           font-family: Montserrat;
-          font-size: 18px;
+          font-size: 1.125rem;
           font-weight: 500;
           color: #514d4d;
         }
@@ -235,7 +241,7 @@ $title-text-color: #707070;
         background-color: #16c3a5;
         color: #fff;
         font-family: Montserrat;
-        font-size: 18px;
+        font-size: 1.125rem;
         font-weight: 500;
         cursor: pointer;
       }
