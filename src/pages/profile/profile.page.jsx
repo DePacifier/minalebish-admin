@@ -8,13 +8,7 @@ import ChangePassword from "../../components/change-password/change-password.com
 import "./profile.styles.scss";
 
 export default class Profile extends Component {
-  state = { showProfile: this.props.showProfile, miniVersion: false };
-
-  handleChangeView = () => {
-    this.setState((prevState) => ({
-      miniVersion: !prevState.miniVersion,
-    }));
-  };
+  state = { showProfile: this.props.showProfile };
 
   handleShowProfile = () => {
     if (this.state.showProfile) return;
@@ -38,14 +32,17 @@ export default class Profile extends Component {
     return (
       <div
         className={`profile-grid-container ${
-          this.state.miniVersion ? "mini-grid-version" : ""
+          this.props.miniVersion ? "mini-grid-version" : ""
         }`}
       >
         <div className="grid-item nav">
-          <Navigation showLabels={!this.state.miniVersion} />
+          <Navigation showLabels={!this.props.miniVersion} />
         </div>
         <div className="grid-item header">
-          <div className="change-view-button" onClick={this.handleChangeView}>
+          <div
+            className="change-view-button"
+            onClick={this.props.handleChangeView}
+          >
             <span class="material-icons-outlined customBurg">menu</span>
           </div>
           <div className="identity-container">

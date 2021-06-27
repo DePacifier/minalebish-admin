@@ -12,13 +12,6 @@ class Customer extends Component {
   state = {
     showCustomer: true,
     showList: true,
-    miniVersion: false,
-  };
-
-  handleChangeView = () => {
-    this.setState((prevState) => ({
-      miniVersion: !prevState.miniVersion,
-    }));
   };
 
   showCustomer = (event) => {
@@ -55,17 +48,20 @@ class Customer extends Component {
     return (
       <div
         className={`customer-grid-container ${
-          this.state.miniVersion ? "mini-grid-version" : ""
+          this.props.miniVersion ? "mini-grid-version" : ""
         }`}
       >
         <div className="grid-item nav">
           <Navigation
-            showLabels={!this.state.miniVersion}
+            showLabels={!this.props.miniVersion}
             activeTab="customers"
           />
         </div>
         <div className="grid-item header">
-          <div className="change-view-button" onClick={this.handleChangeView}>
+          <div
+            className="change-view-button"
+            onClick={this.props.handleChangeView}
+          >
             <span className="material-icons-outlined customBurg">menu</span>
           </div>
           <div className="header-link-container">

@@ -19,27 +19,24 @@ export default class Dashboard extends Component {
     ],
   };
 
-  handleChangeView = () => {
-    this.setState((prevState) => ({
-      miniVersion: !prevState.miniVersion,
-    }));
-  };
-
   render() {
     return (
       <div
         className={`grid-container ${
-          this.state.miniVersion ? "mini-grid-version" : ""
+          this.props.miniVersion ? "mini-grid-version" : ""
         }`}
       >
         <div className="grid-item nav">
           <Navigation
-            showLabels={!this.state.miniVersion}
+            showLabels={!this.props.miniVersion}
             activeTab="dashboard"
           />
         </div>
         <div className="grid-item header">
-          <div className="change-view-button" onClick={this.handleChangeView}>
+          <div
+            className="change-view-button"
+            onClick={this.props.handleChangeView}
+          >
             <span class="material-icons-outlined customBurg">menu</span>
           </div>
           <div className="identity-container">

@@ -8,13 +8,7 @@ import TransactionCreate from "../../components/transaction-components/transacti
 import "./transaction.styles.scss";
 
 export default class UserPage extends Component {
-  state = { showList: this.props.showList, miniVersion: false };
-
-  handleChangeView = () => {
-    this.setState((prevState) => ({
-      miniVersion: !prevState.miniVersion,
-    }));
-  };
+  state = { showList: this.props.showList };
 
   handleShowList = (event) => {
     event.preventDefault();
@@ -34,17 +28,20 @@ export default class UserPage extends Component {
     return (
       <div
         className={`transaction-grid-container ${
-          this.state.miniVersion ? "mini-grid-version" : ""
+          this.props.miniVersion ? "mini-grid-version" : ""
         }`}
       >
         <div className="grid-item nav">
           <Navigation
-            showLabels={!this.state.miniVersion}
+            showLabels={!this.props.miniVersion}
             activeTab="transaction"
           />
         </div>
         <div className="grid-item header">
-          <div className="change-view-button" onClick={this.handleChangeView}>
+          <div
+            className="change-view-button"
+            onClick={this.props.handleChangeView}
+          >
             <span class="material-icons-outlined customBurg">menu</span>
           </div>
           <div className="page-title">Transaction</div>

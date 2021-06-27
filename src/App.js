@@ -1,4 +1,5 @@
 import "./App.css";
+import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import Login from "./components/login/login.component";
 import ForgotPassword from "./pages/forgot-password/forgot-pasword.page";
@@ -13,38 +14,127 @@ import Transaction from "./pages/transaction/transaction.page";
 import Menu from "./pages/menu/menu.page";
 import Customer from "./pages/customer/customer.page";
 
-function App() {
-  return (
-    <div className="App">
-      <Switch>
-        <Route exact path="/" component={Login} />
-        <Route exact path="/forgot-password" component={ForgotPassword} />
-        <Route exact path="/reset-password" component={PasswordReset} />
-        <Route exact path="/:userid/Logs" component={LogPage} />
-        <Route exact path="/:userid/Report" component={ReportPage} />
-        <Route
-          exact
-          path="/:userid/Notifications"
-          render={(props) => <NotificationPage {...props} showList={true} />}
-        />
-        <Route exact path="/:userid/Customers" component={Customer} />
-        <Route
-          exact
-          path="/:userid/User"
-          render={(props) => <UserPage {...props} showList={true} />}
-        />
-        <Route exact path="/:userid/Profile" component={Profile} />
-        <Route exact path="/:userid/Dashboard" component={Dashboard} />
-        <Route
-          exact
-          path="/:userid/Transaction"
-          render={(props) => <Transaction {...props} showList={true} />}
-        />
-        <Route exact path="/:userid/Menu" component={Menu} />
-        <Route path="*" render={() => <h1>Page Not Found !!!</h1>} />
-      </Switch>
-    </div>
-  );
-}
+export default class App extends Component {
+  state = { miniVersion: false };
 
-export default App;
+  handleChangeView = () => {
+    this.setState((prevState) => ({
+      miniVersion: !prevState.miniVersion,
+    }));
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <Switch>
+          <Route exact path="/" component={Login} />
+          <Route exact path="/forgot-password" component={ForgotPassword} />
+          <Route exact path="/reset-password" component={PasswordReset} />
+          <Route
+            exact
+            path="/:userid/Logs"
+            render={(props) => (
+              <LogPage
+                {...props}
+                miniVersion={this.state.miniVersion}
+                handleChangeView={this.handleChangeView}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/:userid/Report"
+            render={(props) => (
+              <ReportPage
+                {...props}
+                miniVersion={this.state.miniVersion}
+                handleChangeView={this.handleChangeView}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/:userid/Notifications"
+            render={(props) => (
+              <NotificationPage
+                {...props}
+                showList={true}
+                miniVersion={this.state.miniVersion}
+                handleChangeView={this.handleChangeView}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/:userid/Customers"
+            render={(props) => (
+              <Customer
+                {...props}
+                miniVersion={this.state.miniVersion}
+                handleChangeView={this.handleChangeView}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/:userid/User"
+            render={(props) => (
+              <UserPage
+                {...props}
+                showList={true}
+                miniVersion={this.state.miniVersion}
+                handleChangeView={this.handleChangeView}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/:userid/Profile"
+            render={(props) => (
+              <Profile
+                {...props}
+                miniVersion={this.state.miniVersion}
+                handleChangeView={this.handleChangeView}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/:userid/Dashboard"
+            render={(props) => (
+              <Dashboard
+                {...props}
+                miniVersion={this.state.miniVersion}
+                handleChangeView={this.handleChangeView}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/:userid/Transaction"
+            render={(props) => (
+              <Transaction
+                {...props}
+                showList={true}
+                miniVersion={this.state.miniVersion}
+                handleChangeView={this.handleChangeView}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/:userid/Menu"
+            render={(props) => (
+              <Menu
+                {...props}
+                miniVersion={this.state.miniVersion}
+                handleChangeView={this.handleChangeView}
+              />
+            )}
+          />
+          <Route path="*" render={() => <h1>Page Not Found !!!</h1>} />
+        </Switch>
+      </div>
+    );
+  }
+}

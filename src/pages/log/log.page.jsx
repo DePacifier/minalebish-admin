@@ -8,15 +8,7 @@ import "./log.styles.scss";
 
 export default class LogPage extends Component {
   state = {
-    showProfile: this.props.showProfile,
-    miniVersion: false,
     showFilter: false,
-  };
-
-  handleChangeView = () => {
-    this.setState((prevState) => ({
-      miniVersion: !prevState.miniVersion,
-    }));
   };
 
   handleFormSubmit = (event) => {
@@ -38,14 +30,17 @@ export default class LogPage extends Component {
     return (
       <div
         className={`log-grid-container ${
-          this.state.miniVersion ? "mini-grid-version" : ""
+          this.props.miniVersion ? "mini-grid-version" : ""
         }`}
       >
         <div className="grid-item nav">
-          <Navigation showLabels={!this.state.miniVersion} activeTab="logs" />
+          <Navigation showLabels={!this.props.miniVersion} activeTab="logs" />
         </div>
         <div className="grid-item header">
-          <div className="change-view-button" onClick={this.handleChangeView}>
+          <div
+            className="change-view-button"
+            onClick={this.props.handleChangeView}
+          >
             <span class="material-icons-outlined customBurg">menu</span>
           </div>
           <div className="page-title">Logs</div>

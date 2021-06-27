@@ -12,13 +12,6 @@ class Menu extends Component {
   state = {
     showMenu: true,
     showList: true,
-    miniVersion: false,
-  };
-
-  handleChangeView = () => {
-    this.setState((prevState) => ({
-      miniVersion: !prevState.miniVersion,
-    }));
   };
 
   showMenu = (event) => {
@@ -55,14 +48,17 @@ class Menu extends Component {
     return (
       <div
         className={`menu-grid-container ${
-          this.state.miniVersion ? "mini-grid-version" : ""
+          this.props.miniVersion ? "mini-grid-version" : ""
         }`}
       >
         <div className="grid-item nav">
-          <Navigation showLabels={!this.state.miniVersion} activeTab="menu" />
+          <Navigation showLabels={!this.props.miniVersion} activeTab="menu" />
         </div>
         <div className="grid-item header">
-          <div className="change-view-button" onClick={this.handleChangeView}>
+          <div
+            className="change-view-button"
+            onClick={this.props.handleChangeView}
+          >
             <span className="material-icons-outlined customBurg">menu</span>
           </div>
           <div className="header-link-container">

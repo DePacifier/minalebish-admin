@@ -37,7 +37,7 @@
 
       .material-icons {
         position: relative;
-        top: 3px;
+        top: 5px;
         color: #000000;
       }
       .label {
@@ -75,6 +75,11 @@
     .material-icons {
       top: 4px !important;
       left: 4px !important;
+
+      @media (max-width: 1400px) {
+        top: 2px !important;
+        left: 3px !important;
+      }
     }
   }
 }

@@ -11,17 +11,10 @@ import "./notification.styles.scss";
 export default class NotificationPage extends Component {
   state = {
     showList: this.props.showList,
-    miniVersion: false,
     createStatus: 0,
     title: "",
     body: "",
     contact: "",
-  };
-
-  handleChangeView = () => {
-    this.setState((prevState) => ({
-      miniVersion: !prevState.miniVersion,
-    }));
   };
 
   handleShowList = (event) => {
@@ -104,9 +97,21 @@ export default class NotificationPage extends Component {
               <label className="checkbox-label">By Age Group</label>
               <div className="content">
                 <h3>Age</h3>
-                <input className="age-input" type="number" placeholder="min" />
-                <span>-</span>
-                <input className="age-input" type="number" placeholder="max" />
+                <input
+                  className="age-input"
+                  type="text"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  placeholder="min"
+                />
+                <span> - </span>
+                <input
+                  className="age-input"
+                  type="text"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  placeholder="max"
+                />
               </div>
             </div>
             <div className="checkbox-group">
@@ -118,41 +123,50 @@ export default class NotificationPage extends Component {
               />
               <label className="checkbox-label">By Location</label>
               <div className="content">
-                <div className="custom-select">
-                  <select>
-                    <option value="email">Country</option>
-                    <option value="phone">Phone</option>
-                    <option value="both">Both</option>
-                  </select>
-                  <span class="material-icons custom-arrow">
-                    arrow_drop_down
-                  </span>
+                <div className="horizontal-flex">
+                  <div className="custom-select">
+                    <select>
+                      <option value="email">Country</option>
+                      <option value="phone">Phone</option>
+                      <option value="both">Both</option>
+                    </select>
+                    <span class="material-icons custom-arrow">
+                      arrow_drop_down
+                    </span>
+                  </div>
+                  <div className="custom-select">
+                    <select>
+                      <option value="email">State</option>
+                      <option value="phone">Phone</option>
+                      <option value="both">Both</option>
+                    </select>
+                    <span class="material-icons custom-arrow">
+                      arrow_drop_down
+                    </span>
+                    <span class="optional">optional</span>
+                  </div>
                 </div>
-                <div className="custom-select">
-                  <select>
-                    <option value="email">State</option>
-                    <option value="phone">Phone</option>
-                    <option value="both">Both</option>
-                  </select>
-                  <span class="material-icons custom-arrow">
-                    arrow_drop_down
-                  </span>
-                  <span class="optional">optional</span>
-                </div>
-                <div className="custom-select">
-                  <select>
-                    <option value="email">City</option>
-                    <option value="phone">Phone</option>
-                    <option value="both">Both</option>
-                  </select>
-                  <span class="material-icons custom-arrow">
-                    arrow_drop_down
-                  </span>
-                  <span class="optional">optional</span>
-                </div>
-                <div className="custom-select">
-                  <input type="number" placeholder="Zip Code" />
-                  <span class="optional">optional</span>
+                <div className="horizontal-flex">
+                  <div className="custom-select">
+                    <select>
+                      <option value="email">City</option>
+                      <option value="phone">Phone</option>
+                      <option value="both">Both</option>
+                    </select>
+                    <span class="material-icons custom-arrow">
+                      arrow_drop_down
+                    </span>
+                    <span class="optional">optional</span>
+                  </div>
+                  <div className="custom-select">
+                    <input
+                      type="text"
+                      inputmode="numeric"
+                      pattern="[0-9]{4}"
+                      placeholder="Zip Code"
+                    />
+                    <span class="optional">optional</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -165,26 +179,28 @@ export default class NotificationPage extends Component {
               />
               <label className="checkbox-label">By Grade</label>
               <div className="content">
-                <div className="grade-container">
-                  <div className="input-holder">
-                    <input type="radio" name="grade" value="gold" />
-                    <label>Gold</label>
+                <div className="grading-container">
+                  <div className="grade-container">
+                    <div className="input-holder">
+                      <input type="radio" name="grade" value="gold" />
+                      <label>Gold</label>
+                    </div>
+                    <div className="image-holder">image</div>
                   </div>
-                  <div className="image-holder">image</div>
-                </div>
-                <div className="grade-container">
-                  <div className="input-holder">
-                    <input type="radio" name="grade" value="platinum" />
-                    <label>Platinum</label>
+                  <div className="grade-container">
+                    <div className="input-holder">
+                      <input type="radio" name="grade" value="platinum" />
+                      <label>Platinum</label>
+                    </div>
+                    <div className="image-holder">image</div>
                   </div>
-                  <div className="image-holder">image</div>
-                </div>
-                <div className="grade-container">
-                  <div className="input-holder">
-                    <input type="radio" name="grade" value="silver" />
-                    <label>Silver</label>
+                  <div className="grade-container">
+                    <div className="input-holder">
+                      <input type="radio" name="grade" value="silver" />
+                      <label>Silver</label>
+                    </div>
+                    <div className="image-holder">image</div>
                   </div>
-                  <div className="image-holder">image</div>
                 </div>
               </div>
             </div>
@@ -235,17 +251,20 @@ export default class NotificationPage extends Component {
     return (
       <div
         className={`notification-grid-container ${
-          this.state.miniVersion ? "mini-grid-version" : ""
+          this.props.miniVersion ? "mini-grid-version" : ""
         }`}
       >
         <div className="grid-item nav">
           <Navigation
-            showLabels={!this.state.miniVersion}
+            showLabels={!this.props.miniVersion}
             activeTab="notifications"
           />
         </div>
         <div className="grid-item header">
-          <div className="change-view-button" onClick={this.handleChangeView}>
+          <div
+            className="change-view-button"
+            onClick={this.props.handleChangeView}
+          >
             <span class="material-icons-outlined customBurg">menu</span>
           </div>
           <div className="page-title">Notifications</div>

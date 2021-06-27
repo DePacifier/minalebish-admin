@@ -205,6 +205,132 @@ $border-color: rgba(22, 195, 165, 0.2);
     .content-container {
       padding: 0 3rem;
     }
+
+    .create-next-page-form {
+      padding: 1rem 2.5rem;
+      .create-next-page {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        .checkbox-group {
+          .checkbox {
+          }
+          .checkbox-label {
+            margin-left: 1rem;
+            font-family: Montserrat;
+            font-size: 1.25rem;
+            font-weight: 500;
+          }
+          .content {
+            margin-left: 2.5rem;
+
+            h3 {
+              font-family: Montserrat;
+              font-size: 1.125rem;
+              font-weight: 500;
+              color: #514d4d;
+              margin: 1rem 0 0.3rem 0 !important;
+            }
+            .age-input {
+              width: 8.438rem;
+              height: 3.75rem;
+              background-color: #fcfcfc;
+              border-radius: 0.5rem;
+              border: 1px solid #dedede;
+              font-family: Montserrat;
+              font-size: 1.125rem;
+              font-weight: 400;
+              color: #9f9e9e;
+              text-align: center;
+            }
+
+            .horizontal-flex {
+              display: flex;
+              gap: 3rem;
+            }
+
+            .custom-select {
+              position: relative;
+              margin-top: 0.438rem;
+              width: 21.938rem;
+              padding-top: 1.35rem;
+              select {
+                width: 100%;
+                height: 3.75rem;
+                border-radius: 0.5rem;
+                border: 1px solid #dedede;
+                background-color: #fcfcfc;
+                font-family: Montserrat;
+                font-size: 1.125rem;
+                font-weight: 400;
+                color: #9f9e9e;
+                padding-left: 0.938rem;
+                appearance: none;
+              }
+              .custom-arrow {
+                position: absolute;
+                right: 0.5rem;
+                top: 1.35rem;
+                pointer-events: none;
+                height: 100%;
+                color: #707070;
+                font-size: 2.25rem;
+                line-height: 3.75rem;
+              }
+
+              .optional {
+                position: absolute;
+                top: 0;
+                left: 0;
+                font-family: Montserrat;
+                font-size: 0.75rem;
+                font-weight: 400;
+                color: #9f9e9e;
+              }
+
+              input {
+                width: 100%;
+                height: 3.75rem;
+                border-radius: 0.5rem;
+                border: 1px solid #dedede;
+                background-color: #fcfcfc;
+                font-family: Montserrat;
+                font-size: 1.125rem;
+                font-weight: 400;
+                color: #9f9e9e;
+                padding-left: 0.938rem;
+              }
+            }
+
+            .grading-container {
+              margin-top: 1rem;
+              display: flex;
+              width: 52.563rem;
+              flex-wrap: wrap;
+              gap: 1rem 3rem;
+              .grade-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.5rem 1rem;
+                width: 21.938rem;
+                height: 4rem;
+                border-radius: 0.5rem;
+                border: 1px solid #dedede;
+                box-shadow: 0 3px 6px rgba($color: #000000, $alpha: 0.16);
+
+                .input-holder {
+                  label {
+                    margin-left: 0.7rem;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 

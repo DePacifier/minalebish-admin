@@ -26,7 +26,6 @@ export default class ReportPage extends Component {
     link4: false,
     link5: false,
     link6: false,
-    miniVersion: false,
   };
 
   handleLinkClick = (event, linkId) => {
@@ -35,24 +34,21 @@ export default class ReportPage extends Component {
     this.setState({ ...inactiveLinks, [linkId]: true });
   };
 
-  handleChangeView = () => {
-    this.setState((prevState) => ({
-      miniVersion: !prevState.miniVersion,
-    }));
-  };
-
   render() {
     return (
       <div
         className={`report-grid-container ${
-          this.state.miniVersion ? "mini-grid-version" : ""
+          this.props.miniVersion ? "mini-grid-version" : ""
         }`}
       >
         <div className="grid-item nav">
-          <Navigation showLabels={!this.state.miniVersion} activeTab="report" />
+          <Navigation showLabels={!this.props.miniVersion} activeTab="report" />
         </div>
         <div className="grid-item header">
-          <div className="change-view-button" onClick={this.handleChangeView}>
+          <div
+            className="change-view-button"
+            onClick={this.props.handleChangeView}
+          >
             <span className="material-icons-outlined customBurg">menu</span>
           </div>
           <div className="page-title">Reports</div>
