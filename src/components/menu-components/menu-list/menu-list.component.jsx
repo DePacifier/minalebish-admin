@@ -35,7 +35,7 @@ export default class MenuList extends Component {
         </div>
         <div className="menu-list-container">
           <div className="input-holder">
-            <span className="input-label">Gender</span>
+            <span className="input-label">Category</span>
             <div className="custom-select">
               <select
                 name="category"
