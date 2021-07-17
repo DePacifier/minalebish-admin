@@ -20,7 +20,8 @@
   }
 
   @media (max-width: 1400px) {
-    margin: 5rem 1rem 1rem 0;
+    margin: 5rem 1rem 0 0;
+    height: calc(100% - 8.9rem);
   }
 
   .input-content-container {

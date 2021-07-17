@@ -12,7 +12,7 @@ class ForgotPassword extends Component {
   };
 
   handleSubmit = () => {
-    this.props.history.push("/");
+    this.props.history.push("/password-changed");
   };
 
   render() {

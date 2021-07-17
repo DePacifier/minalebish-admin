@@ -2,7 +2,7 @@ import React from "react";
 
 import "./user-profile.styles.scss";
 
-const UserProfile = () => {
+const UserProfile = ({ full_name, email, phone_no, role }) => {
   return (
     <>
       <h1 className="title">User</h1>
@@ -10,13 +10,13 @@ const UserProfile = () => {
       <div className="main-flex-dash-container">
         <form className="user-profile-form">
           <label>Name</label>
-          <input disabled type="text" value="Jon Doe" />
+          <input disabled type="text" value={full_name} />
           <label>Email</label>
-          <input disabled type="email" value="jondoe@gmail.com" />
+          <input disabled type="email" value={email} />
           <label>Phone Number</label>
-          <input disabled type="tel" value="+251 911 42 1268" />
+          <input disabled type="tel" value={phone_no} />
           <label>Role</label>
-          <input disabled type="text" value="Admin" />
+          <input disabled type="text" value={role} />
         </form>
       </div>
     </>

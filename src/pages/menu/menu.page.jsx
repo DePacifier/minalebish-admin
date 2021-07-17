@@ -134,14 +134,14 @@ class Menu extends Component {
           </div>
           {this.state.showMenu ? (
             this.state.showList ? (
-              <MenuList />
+              <MenuList axios={this.props.axios} />
             ) : (
-              <MenuCreate />
+              <MenuCreate axios={this.props.axios} />
             )
           ) : this.state.showList ? (
-            <CategoryList />
+            <CategoryList axios={this.props.axios} />
           ) : (
-            <CategoryCreate />
+            <CategoryCreate axios={this.props.axios} />
           )}
         </div>
       </div>

@@ -212,24 +212,35 @@ let tableRaw = [
   ],
 ];
 export default class TableDisplay extends Component {
-  headerData =
-    this.props.tableData !== undefined ? this.props.tableData[0] : tableRaw[0];
-  tableValueData =
-    this.props.tableData !== undefined
-      ? this.props.tableData.slice(1)
-      : tableRaw.slice(1);
-  initialDividedTableData = sliceIntoChunks(this.tableValueData, 5);
-  initialTableData = this.initialDividedTableData[0];
-  pageLinks = generatePageNumbers(this.initialDividedTableData);
+  constructor(props) {
+    super(props);
+    this.state = { ...this.prepareTable(props) };
+  }
 
-  state = {
-    totalCount: this.tableValueData.length,
-    viewSize: 5,
-    tableHeaderData: this.headerData,
-    dividedTableData: this.initialDividedTableData,
-    tableData: this.initialTableData,
-    pageLinks: this.pageLinks,
-    chunkInView: 0,
+  componentWillReceiveProps(props) {
+    this.setState({ ...this.prepareTable(props) });
+  }
+
+  prepareTable = (props) => {
+    let headerData =
+      props.tableData !== undefined ? props.tableData[0] : tableRaw[0];
+    let tableValueData =
+      props.tableData !== undefined
+        ? props.tableData.slice(1)
+        : tableRaw.slice(1);
+    let initialDividedTableData = sliceIntoChunks(tableValueData, 5);
+    let initialTableData = initialDividedTableData[0];
+    let pageLinks = generatePageNumbers(initialDividedTableData);
+
+    return {
+      totalCount: tableValueData.length,
+      viewSize: 5,
+      tableHeaderData: headerData,
+      dividedTableData: initialDividedTableData,
+      tableData: initialTableData,
+      pageLinks: pageLinks,
+      chunkInView: 0,
+    };
   };
 
   handleItemViewSize = (event) => {
@@ -301,16 +312,16 @@ export default class TableDisplay extends Component {
         <table className="display-table">
           <thead>
             <tr className="table-header">
-              {this.state.tableHeaderData.map((tableHeaders) => (
-                <th>{tableHeaders}</th>
+              {this.state.tableHeaderData.map((tableHeaders, index) => (
+                <th key={`head-${index}`}>{tableHeaders}</th>
               ))}
             </tr>
           </thead>
           <tbody>
-            {this.state.tableData.map((tableData) => (
-              <tr className="table-data">
-                {tableData.map((tableValues) => (
-                  <td>{tableValues}</td>
+            {this.state.tableData.map((tableData, index) => (
+              <tr key={`row-${index}`} className="table-data">
+                {tableData.map((tableValues, index) => (
+                  <td key={`value-${index}`}>{tableValues}</td>
                 ))}
               </tr>
             ))}

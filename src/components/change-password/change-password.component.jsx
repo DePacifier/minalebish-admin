@@ -9,6 +9,8 @@ class ChangePassword extends Component {
     oldPassword: "",
     newPassword: "",
     confirmPassword: "",
+    passMismatchError: false,
+    error: false,
   };
 
   handleChange = (event) => {
@@ -16,8 +18,29 @@ class ChangePassword extends Component {
     this.setState({ [name]: value });
   };
 
-  handleSubmit = () => {
-    this.props.history.push("/reset-password");
+  handleSubmit = (event) => {
+    event.preventDefault();
+    if (
+      this.state.newPassword === this.state.confirmPassword &&
+      this.state.oldPassword !== ""
+    ) {
+      this.setState({ passMismatchError: false, error: false });
+      this.props.axios
+        .patch("/user/change-password", {
+          old_password: this.state.oldPassword,
+          new_password: this.state.newPassword,
+        })
+        .then((response) => {
+          console.log(response, "password changed successfully");
+          this.props.history.push("/password-changed");
+        })
+        .catch((error) => {
+          console.log(error);
+          this.setState({ error: true });
+        });
+    } else {
+      this.setState({ passMismatchError: true });
+    }
   };
 
   render() {

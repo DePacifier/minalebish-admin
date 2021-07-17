@@ -37,7 +37,7 @@ export default class Dashboard extends Component {
             className="change-view-button"
             onClick={this.props.handleChangeView}
           >
-            <span class="material-icons-outlined customBurg">menu</span>
+            <span className="material-icons-outlined customBurg">menu</span>
           </div>
           <div className="identity-container">
             <div className="image">JD</div>
@@ -47,7 +47,7 @@ export default class Dashboard extends Component {
             </div>
             <div className="dropdown-menu">
               <div className="dropdown-icon">
-                <span class="material-icons-outlined">arrow_drop_down</span>
+                <span className="material-icons-outlined">arrow_drop_down</span>
               </div>
               <div className="options-list">
                 <Link
@@ -68,7 +68,13 @@ export default class Dashboard extends Component {
                 >
                   Change password
                 </Link>
-                <Link to="/" className="option">
+                <Link
+                  to=""
+                  className="option"
+                  onClick={(event) => {
+                    this.props.handleLogOut(event);
+                  }}
+                >
                   Logout
                 </Link>
               </div>

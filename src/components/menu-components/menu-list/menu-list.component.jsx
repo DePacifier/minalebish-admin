@@ -4,9 +4,16 @@ import "./menu-list.styles.scss";
 
 import TableDisplay from "../../table-display/table-display.component";
 import MenuModal from "../menu-modal/menu-modal.component";
+import MenuToggle from "../menu-list-toggle/menu-list-toggle.component";
 
 export default class MenuList extends Component {
-  state = { category: "", modal: false };
+  state = {
+    category: "",
+    modal: false,
+    tableData: [],
+    isLoaded: false,
+    fetchFailed: false,
+  };
 
   handleChange = (event) => {
     const { name, value } = event.target;
@@ -16,6 +23,51 @@ export default class MenuList extends Component {
 
   selectModal = (event) => {
     this.setState({ modal: !this.state.modal });
+  };
+
+  fetchData = () => {
+    const axios = this.props.axios;
+    axios
+      .get("/menu")
+      .then((response) => {
+        //create the actual table data that will be passed to table display
+        let tableData = [["Date", "Name", "Category", " "]];
+        let menuList = response.data.data;
+        for (let menuIndex in menuList) {
+          tableData.push([
+            menuList[menuIndex].created_at.slice(0, 10),
+            menuList[menuIndex].name,
+            menuList[menuIndex].category.name,
+            <MenuToggle
+              toggleStatus={menuList[menuIndex].is_suspended ? true : false}
+              onToggleMethod={this.handleListDataToggle}
+              onEditMethod={this.handleEditMethod}
+              id={menuList[menuIndex].id}
+            />,
+          ]);
+        }
+        this.setState({
+          tableData: tableData,
+          isLoaded: true,
+          fetchFailed: false,
+        });
+      })
+      .catch((error) => {
+        this.setState({ fetchFailed: true });
+        console.log(error);
+      });
+  };
+
+  componentDidMount = () => {
+    this.fetchData();
+  };
+
+  handleListDataToggle = (id) => {
+    console.log(id);
+  };
+
+  handleEditMethod = (id) => {
+    console.log(id);
   };
 
   render() {
@@ -35,7 +87,6 @@ export default class MenuList extends Component {
         </div>
         <div className="menu-list-container">
           <div className="input-holder">
-            <span className="input-label">Category</span>
             <div className="custom-select">
               <select
                 name="category"
@@ -51,16 +102,13 @@ export default class MenuList extends Component {
               </span>
             </div>
           </div>
-          <TableDisplay
-            tableData={[
-              ["Date", "Name", "Category", " "],
-              ["25 Dec 2021", "Selit", "Oil", "Menu list toggle"],
-              ["25 Dec 2021", "Selit", "Oil", "Menu list toggle"],
-              ["25 Dec 2021", "Selit", "Oil", "Menu list toggle"],
-              ["25 Dec 2021", "Selit", "Oil", "Menu list toggle"],
-              ["25 Dec 2021", "Selit", "Oil", "Menu list toggle"],
-            ]}
-          />
+          {this.state.fetchFailed ? (
+            "Couldnt Not Fetch Data"
+          ) : this.state.isLoaded === false ? (
+            "Loading Data"
+          ) : (
+            <TableDisplay tableData={this.state.tableData} />
+          )}
         </div>
       </>
     );

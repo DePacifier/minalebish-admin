@@ -21,7 +21,7 @@ $border-color: rgba(22, 195, 165, 0.2);
 
   .grid-item {
     h2 {
-      line-height: 0.5;
+      line-height: 1;
     }
   }
 
@@ -153,7 +153,7 @@ $border-color: rgba(22, 195, 165, 0.2);
 
     .scrollable {
       padding: 1rem 3rem;
-      height: calc(100% - 7rem);
+      height: calc(100% - 7.1rem);
       overflow-y: scroll;
       scrollbar-width: none;
       -ms-overflow-style: none;

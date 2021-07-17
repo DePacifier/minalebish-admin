@@ -1,0 +1,36 @@
+.toggle-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  .toggle {
+    cursor: pointer;
+    display: block;
+    .toggle-input {
+      display: none;
+    }
+
+    .toggle-input:checked + .toggle-bar {
+      background-color: #16c3a5;
+      .toggle-spin {
+        transform: translateX(1.3rem);
+      }
+    }
+
+    .toggle-bar {
+      width: 3rem;
+      height: 1.5rem;
+      background-color: #ff7878;
+      border-radius: 2rem;
+      padding: 3.5px 5px 0 5px;
+      transition: background-color 0.2s linear;
+      .toggle-spin {
+        width: 1rem;
+        height: 1rem;
+        background-color: white;
+        border-radius: 1rem;
+        transition: transform 0.2s linear;
+      }
+    }
+  }
+}

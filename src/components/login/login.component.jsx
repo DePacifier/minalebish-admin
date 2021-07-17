@@ -2,22 +2,51 @@ import "./login.styles.scss";
 
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import axios from "../../api/requestHandler";
 
 class Login extends Component {
   state = {
     email: "",
     password: "",
+    remember: true,
+    error: false,
+  };
+
+  componentWillMount = () => {
+    let token = localStorage.getItem("minealebshToken");
+    this.props.loadProfile(token);
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
     console.log("clicked!");
-    this.props.history.push("/123/Dashboard");
+
+    axios
+      .post("/user/auth", {
+        identifier: this.state.email,
+        password: this.state.password,
+      })
+      .then((response) => {
+        console.log(response);
+        this.props.authenticator(
+          response.data.token,
+          response.data.user,
+          this.state.remember
+        );
+      })
+      .catch((error) => {
+        console.log(error);
+        this.setState({ error: true });
+      });
   };
 
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
+  };
+
+  handleCheckToggle = () => {
+    this.setState((prevState) => ({ remember: !prevState.remember }));
   };
 
   handleForgotPassword = () => {
@@ -36,7 +65,7 @@ class Login extends Component {
                 <input
                   className="inputs"
                   name="email"
-                  type="email"
+                  type="text"
                   value={this.state.email}
                   onChange={this.handleChange}
                   required
@@ -57,7 +86,8 @@ class Login extends Component {
                   className="checkbox"
                   type="checkbox"
                   name="remember"
-                  value="remember me"
+                  checked={this.state.remember}
+                  onChange={this.handleCheckToggle}
                 />
                 <label className="checkbox" htmlFor="remember">
                   Remember Me

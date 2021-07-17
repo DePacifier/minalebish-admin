@@ -43,7 +43,7 @@ export default class Profile extends Component {
             className="change-view-button"
             onClick={this.props.handleChangeView}
           >
-            <span class="material-icons-outlined customBurg">menu</span>
+            <span className="material-icons-outlined customBurg">menu</span>
           </div>
           <div className="identity-container">
             <div className="image">JD</div>
@@ -53,7 +53,7 @@ export default class Profile extends Component {
             </div>
             <div className="dropdown-menu">
               <div className="dropdown-icon">
-                <span class="material-icons-outlined">arrow_drop_down</span>
+                <span className="material-icons-outlined">arrow_drop_down</span>
               </div>
               <div className="options-list">
                 <Link
@@ -76,7 +76,11 @@ export default class Profile extends Component {
           </div>
         </div>
         <div className="grid-item main">
-          {this.state.showProfile ? <UserProfile /> : <ChangePassword />}
+          {this.state.showProfile ? (
+            <UserProfile {...this.props.userData} />
+          ) : (
+            <ChangePassword axios={this.props.axios} />
+          )}
         </div>
       </div>
     );
